@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://salairecalc.fr/sitemap.xml
+Sitemap: https://calculer-mon-salaire.fr/sitemap.xml
