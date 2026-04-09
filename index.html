@@ -3,580 +3,492 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculateur Salaire Net Brut 2025 – Conversion instantanée</title>
-  <meta name="description" content="Convertissez votre salaire brut en net (et inversement) en quelques secondes. Calcul basé sur les taux de cotisations sociales français 2025." />
+  <title>Calculateur Salaire Net Brut 2026 – Conversion instantanée</title>
+  <meta name="description" content="Convertissez votre salaire brut en net (et inversement) en quelques secondes. Calcul basé sur les taux de cotisations sociales français 2026. SMIC 2026 inclus." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://votre-domaine.fr/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Calculateur Salaire Net / Brut 2025" />
-  <meta property="og:description" content="Convertissez votre salaire brut en net instantanément. Taux 2025 à jour." />
+  <link rel="canonical" href="https://salairecalc.fr/" />
+  <meta property="og:title" content="Calculateur Salaire Net / Brut 2026" />
+  <meta property="og:description" content="Convertissez votre salaire brut en net instantanément. Taux 2026 à jour." />
   <meta property="og:type" content="website" />
-
-  <!-- Schema.org -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Calculateur Salaire Net Brut 2025",
-    "description": "Outil de conversion salaire brut net pour salariés français",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "All",
-    "offers": { "@type": "Offer", "price": "0" }
-  }
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Calculateur Salaire Net Brut 2026","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0"}}
   </script>
-
-  <!-- AdSense placeholder — remplacer l'ID quand approuvé -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg:      #0f0f0f;
-      --bg2:     #161616;
-      --bg3:     #1e1e1e;
-      --border:  #272727;
-      --text:    #f0ede8;
-      --muted:   #888;
-      --faint:   #444;
-      --accent:  #c8f135;
-      --accent2: #a0c42a;
-      --radius:  14px;
-      --mono:    'DM Mono', monospace;
-      --sans:    'Sora', sans-serif;
+      --bg:       #ffffff;
+      --bg2:      #f8f8f6;
+      --bg3:      #f0f0ec;
+      --border:   #e8e8e4;
+      --border2:  #d4d4ce;
+      --text:     #1a1a18;
+      --text2:    #6b6b65;
+      --text3:    #a8a8a2;
+      --accent:   #2563eb;
+      --accent-l: #eff6ff;
+      --accent-b: #bfdbfe;
+      --green:    #16a34a;
+      --green-l:  #f0fdf4;
+      --green-b:  #bbf7d0;
+      --orange:   #ea580c;
+      --orange-l: #fff7ed;
+      --r:        16px;
+      --rsm:      10px;
+      --mono: 'DM Mono', monospace;
+      --sans: 'Plus Jakarta Sans', sans-serif;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
     /* ── HEADER ── */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: .04em;
-      text-decoration: none;
-    }
-    .logo span { color: var(--muted); }
+    header{border-bottom:1px solid var(--border);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+    .logo{font-family:var(--mono);font-size:14px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:500}
+    .logo-icon{width:26px;height:26px}
+    .badge{font-size:11px;font-weight:600;background:var(--green-l);border:1px solid var(--green-b);color:var(--green);padding:3px 10px;border-radius:99px;letter-spacing:.02em}
 
-    /* ── LAYOUT ── */
-    main {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
+    /* ── HERO ── */
+    .hero-section{background:var(--bg2);border-bottom:1px solid var(--border);padding:64px 32px 56px}
+    .hero-inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+    h1{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:800;line-height:1.1;letter-spacing:-.04em;margin-bottom:16px}
+    h1 .accent{color:var(--accent)}
+    .hero-sub{font-size:1rem;color:var(--text2);line-height:1.7;max-width:420px}
+    .hero-badges{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+    .hbadge{display:flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;padding:5px 11px;border-radius:99px;border:1px solid var(--border)}
+    .hbadge.blue{background:var(--accent-l);border-color:var(--accent-b);color:var(--accent)}
+    .hbadge.green{background:var(--green-l);border-color:var(--green-b);color:var(--green)}
+    .hbadge.orange{background:var(--orange-l);border-color:#fed7aa;color:var(--orange)}
 
-    h1 {
-      font-size: clamp(1.5rem, 4vw, 2.1rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-    h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
+    /* hero illustration */
+    .hero-illo{flex-shrink:0}
 
-    .subtitle {
-      color: var(--muted);
-      font-size: .93rem;
-      margin-bottom: 40px;
-    }
+    /* ── SMIC STRIP ── */
+    .smic-strip{background:#fff;border-bottom:1px solid var(--border);padding:0 32px}
+    .smic-inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+    .smic-cell{padding:18px 20px;border-right:1px solid var(--border);display:flex;align-items:center;gap:14px}
+    .smic-cell:last-child{border-right:none}
+    .smic-icon{width:36px;height:36px;flex-shrink:0}
+    .smic-text{}
+    .smic-lbl{font-size:.72rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+    .smic-val{font-family:var(--mono);font-size:1.05rem;font-weight:500;color:var(--text)}
+    .smic-delta{font-size:.72rem;color:var(--green);font-weight:600;margin-top:1px}
+
+    /* ── MAIN ── */
+    main{max-width:760px;margin:0 auto;padding:48px 32px 80px}
+
+    /* AD */
+    .ad-slot{background:var(--bg2);border:1px dashed var(--border2);border-radius:var(--r);height:80px;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:.74rem;font-family:var(--mono);margin-bottom:36px}
 
     /* ── CARD ── */
-    .card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      margin-bottom: 24px;
-    }
+    .card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,.05),0 1px 3px rgba(0,0,0,.04);margin-bottom:24px}
 
-    /* ── TOGGLE ── */
-    .toggle-wrap {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-    .toggle-btn {
-      flex: 1;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      font-family: var(--sans);
-      font-size: .88rem;
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .toggle-btn.active {
-      background: var(--accent);
-      color: #0f0f0f;
-      border-color: var(--accent);
-      font-weight: 600;
-    }
+    /* TOGGLE */
+    .toggle-wrap{display:flex;gap:4px;background:var(--bg2);padding:4px;border-radius:var(--rsm);margin-bottom:24px;border:1px solid var(--border)}
+    .toggle-btn{flex:1;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--text2);font-family:var(--sans);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .18s}
+    .toggle-btn.active{background:#fff;color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.1)}
 
-    /* ── FORM ── */
-    .field { margin-bottom: 20px; }
-    label {
-      display: block;
-      font-size: .82rem;
-      color: var(--muted);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+    /* PERIOD */
+    .period-wrap{display:flex;gap:6px;margin-bottom:22px}
+    .period-btn{padding:5px 14px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--text3);font-family:var(--sans);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .15s}
+    .period-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
+    .period-btn:hover:not(.active){color:var(--text);border-color:var(--border2)}
 
-    .input-wrap {
-      position: relative;
-    }
-    .input-wrap input {
-      width: 100%;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 1.3rem;
-      font-weight: 500;
-      padding: 14px 52px 14px 18px;
-      outline: none;
-      transition: border-color .2s;
-      -moz-appearance: textfield;
-    }
-    .input-wrap input::-webkit-outer-spin-button,
-    .input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; }
-    .input-wrap input:focus { border-color: var(--accent); }
-    .currency {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--faint);
-      font-family: var(--mono);
-      font-size: 1rem;
-      pointer-events: none;
-    }
+    /* INPUT */
+    label{display:block;font-size:.76rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+    .input-wrap{position:relative}
+    .input-wrap input{width:100%;background:var(--bg2);border:2px solid var(--border);border-radius:var(--rsm);color:var(--text);font-family:var(--mono);font-size:1.75rem;font-weight:500;padding:16px 56px 16px 20px;outline:none;transition:border-color .18s,background .18s;-moz-appearance:textfield}
+    .input-wrap input::-webkit-outer-spin-button,.input-wrap input::-webkit-inner-spin-button{-webkit-appearance:none}
+    .input-wrap input:focus{border-color:var(--accent);background:#fff}
+    .input-wrap input::placeholder{color:var(--text3)}
+    .currency{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--text3);font-family:var(--mono);font-size:1.1rem;pointer-events:none}
 
-    /* select période */
-    .period-wrap {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    .period-btn {
-      padding: 7px 14px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      font-family: var(--sans);
-      font-size: .82rem;
-      cursor: pointer;
-      transition: all .15s;
-    }
-    .period-btn.active {
-      border-color: var(--faint);
-      color: var(--text);
-      background: var(--bg3);
-    }
+    /* RESULT */
+    .result-card{margin-top:16px;background:var(--bg2);border:2px solid var(--border);border-radius:var(--rsm);padding:22px;position:relative;overflow:hidden;transition:border-color .3s}
+    .result-card.lit{border-color:var(--accent-b);background:var(--accent-l)}
+    .result-lbl{font-size:.73rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+    .result-card.lit .result-lbl{color:var(--accent)}
+    .result-main{font-family:var(--mono);font-size:2.6rem;font-weight:500;color:var(--text);letter-spacing:-.03em;line-height:1;margin-bottom:20px}
+    .result-card.lit .result-main{color:var(--accent)}
+    .result-main .unit{font-size:.95rem;color:var(--text3);font-weight:400;margin-left:5px}
+    .rg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .rg-item{background:#fff;border-radius:8px;padding:12px 14px;border:1px solid var(--border)}
+    .result-card.lit .rg-item{border-color:var(--accent-b)}
+    .rg-lbl{font-size:.7rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+    .rg-val{font-family:var(--mono);font-size:.92rem;color:var(--text2)}
+    .rg-val.green{color:var(--green);font-weight:500}
 
-    /* ── RÉSULTAT ── */
-    .result-box {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px 24px;
-      margin-top: 8px;
-    }
-    .result-label {
-      font-size: .8rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 6px;
-    }
-    .result-value {
-      font-family: var(--mono);
-      font-size: 2.2rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: -.02em;
-    }
-    .result-value span {
-      font-size: 1rem;
-      color: var(--muted);
-      margin-left: 4px;
-    }
-    .result-sub {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .result-sub-item {
-      background: var(--bg2);
-      border-radius: 8px;
-      padding: 12px 14px;
-    }
-    .result-sub-item .rs-label {
-      font-size: .75rem;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-    .result-sub-item .rs-val {
-      font-family: var(--mono);
-      font-size: 1rem;
-      color: var(--text);
-    }
+    /* CARD FOOTER */
+    .cf{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:18px;border-top:1px solid var(--border);font-size:.78rem;color:var(--text3)}
+    .cf a{color:var(--accent);text-decoration:none;font-weight:500}
+    .cf a:hover{text-decoration:underline}
 
-    /* ── TAUX ── */
-    .rates-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      font-size: .82rem;
-      color: var(--muted);
-    }
-    .rates-row a {
-      color: var(--faint);
-      text-decoration: none;
-      font-size: .78rem;
-    }
-    .rates-row a:hover { color: var(--muted); }
+    /* ── HOW IT WORKS ── */
+    .how-section{margin:56px 0 0}
+    .section-tag{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+    .section-tag::before{content:'';width:18px;height:2px;background:var(--accent);border-radius:2px}
+    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .how-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:22px 20px}
+    .how-illo{margin-bottom:14px}
+    .how-title{font-size:.95rem;font-weight:700;margin-bottom:6px;color:var(--text)}
+    .how-desc{font-size:.83rem;color:var(--text2);line-height:1.65}
 
-    /* ── ADSENSE SLOT ── */
-    .ad-slot {
-      background: var(--bg2);
-      border: 1px dashed var(--border);
-      border-radius: var(--radius);
-      height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--faint);
-      font-size: .78rem;
-      font-family: var(--mono);
-      margin-bottom: 24px;
-    }
+    /* ── TABLE ── */
+    .table-section{margin-top:52px}
+    .tbl-wrap{overflow:hidden;border:1px solid var(--border);border-radius:var(--r);margin-top:20px}
+    .tbl{width:100%;border-collapse:collapse;font-size:.84rem}
+    .tbl th{text-align:left;font-size:.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;padding:12px 18px;background:var(--bg2);border-bottom:1px solid var(--border)}
+    .tbl td{padding:12px 18px;border-bottom:1px solid var(--border);font-family:var(--mono);color:var(--text2)}
+    .tbl td:first-child{color:var(--text);font-weight:500}
+    .tbl td.green{color:var(--green);font-weight:500}
+    .tbl tr:last-child td{border-bottom:none}
+    .tbl tr.smic-row{background:var(--green-l)}
+    .tbl tr.smic-row td:first-child::after{content:' SMIC';font-size:.65rem;color:var(--green);font-family:var(--sans);font-weight:700;margin-left:4px}
 
-    /* ── CONTENT SEO ── */
-    .content { margin-top: 48px; }
-    .content h2 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      margin-top: 32px;
-      color: var(--text);
-    }
-    .content p {
-      color: var(--muted);
-      font-size: .92rem;
-      line-height: 1.75;
-      margin-bottom: 12px;
-    }
-    .content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: .85rem;
-    }
-    .content th {
-      text-align: left;
-      color: var(--muted);
-      font-weight: 400;
-      padding: 8px 12px;
-      border-bottom: 1px solid var(--border);
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
-    .content td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
-      font-family: var(--mono);
-      font-size: .88rem;
-      color: var(--text);
-    }
-    .content tr:last-child td { border-bottom: none; }
+    /* ── FAQ ── */
+    .faq-section{margin-top:52px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-size:.97rem;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:flex-start;gap:10px}
+    .faq-q::before{content:'Q';font-family:var(--mono);font-size:.72rem;color:var(--accent);background:var(--accent-l);border:1px solid var(--accent-b);border-radius:4px;padding:1px 6px;flex-shrink:0;margin-top:2px}
+    .faq-a{font-size:.9rem;color:var(--text2);line-height:1.75;padding-left:28px}
+    .faq-a strong{color:var(--text);font-weight:600}
 
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px;
-      text-align: center;
-      font-size: .78rem;
-      color: var(--faint);
-    }
+    footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;color:var(--text3)}
+    footer a{color:var(--text3);text-decoration:none}
+    footer a:hover{color:var(--text)}
 
-    @media (max-width: 480px) {
-      .card { padding: 20px 16px; }
-      .result-sub { grid-template-columns: 1fr; }
-      .result-value { font-size: 1.8rem; }
+    @media(max-width:640px){
+      .hero-section{padding:40px 20px 36px}
+      .hero-inner{grid-template-columns:1fr}
+      .hero-illo{display:none}
+      .smic-inner{grid-template-columns:1fr}
+      .smic-cell{border-right:none;border-bottom:1px solid var(--border);padding:14px 20px}
+      .smic-cell:last-child{border-bottom:none}
+      main{padding:32px 20px 60px}
+      .card{padding:20px 16px}
+      .rg{grid-template-columns:1fr}
+      .result-main{font-size:2rem}
+      .how-grid{grid-template-columns:1fr}
+      footer{flex-direction:column;gap:8px;text-align:center}
     }
   </style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
-  <a class="logo" href="/">salaire<span>calc</span>.fr</a>
+  <a class="logo" href="/">
+    <svg class="logo-icon" viewBox="0 0 26 26" fill="none">
+      <rect width="26" height="26" rx="7" fill="#eff6ff"/>
+      <path d="M7 13h12M13 7v12" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="13" cy="13" r="4" stroke="#2563eb" stroke-width="1.5" fill="none"/>
+    </svg>
+    salairecalc.fr
+  </a>
+  <span class="badge">✓ Taux 2026</span>
 </header>
 
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-inner">
+    <div>
+      <h1>Convertissez votre salaire<br/><span class="accent">brut ↔ net</span> en 2026</h1>
+      <p class="hero-sub">Calcul instantané basé sur les cotisations sociales françaises en vigueur. SMIC 2026 intégré.</p>
+      <div class="hero-badges">
+        <span class="hbadge blue">⚡ Instantané</span>
+        <span class="hbadge green">✓ Taux 2026 officiels</span>
+        <span class="hbadge orange">€ Gratuit</span>
+      </div>
+    </div>
+    <!-- Illustration hero : personne devant graphique salaire -->
+    <div class="hero-illo">
+      <svg width="200" height="180" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Bureau -->
+        <rect x="20" y="130" width="160" height="8" rx="3" fill="#e8e8e4"/>
+        <!-- Ordinateur portable -->
+        <rect x="55" y="80" width="90" height="55" rx="6" fill="#f0f0ec" stroke="#d4d4ce" stroke-width="1.5"/>
+        <rect x="60" y="85" width="80" height="42" rx="3" fill="#fff"/>
+        <!-- Graphique sur l'écran -->
+        <rect x="65" y="110" width="8" height="14" rx="2" fill="#bfdbfe"/>
+        <rect x="76" y="103" width="8" height="21" rx="2" fill="#93c5fd"/>
+        <rect x="87" y="96" width="8" height="28" rx="2" fill="#60a5fa"/>
+        <rect x="98" y="99" width="8" height="25" rx="2" fill="#3b82f6"/>
+        <rect x="109" y="91" width="8" height="33" rx="2" fill="#2563eb"/>
+        <rect x="120" y="86" width="8" height="38" rx="2" fill="#1d4ed8"/>
+        <!-- ligne tendance -->
+        <polyline points="69,115 80,108 91,101 102,104 113,96 124,90" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- socle laptop -->
+        <path d="M42 135 Q100 130 158 135" stroke="#d4d4ce" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <!-- Personnage assis -->
+        <!-- corps -->
+        <ellipse cx="155" cy="115" rx="14" ry="17" fill="#dbeafe"/>
+        <!-- tête -->
+        <circle cx="155" cy="90" r="13" fill="#fde68a"/>
+        <!-- cheveux -->
+        <path d="M142 86 Q145 74 155 72 Q165 74 168 86" fill="#92400e"/>
+        <!-- visage souriant -->
+        <circle cx="151" cy="89" r="1.5" fill="#92400e"/>
+        <circle cx="159" cy="89" r="1.5" fill="#92400e"/>
+        <path d="M151 94 Q155 98 159 94" stroke="#92400e" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <!-- bras -->
+        <path d="M141 110 Q132 118 128 125" stroke="#dbeafe" stroke-width="8" stroke-linecap="round" fill="none"/>
+        <!-- main sur clavier -->
+        <ellipse cx="126" cy="127" rx="6" ry="4" fill="#fde68a"/>
+        <!-- bulle pensée -->
+        <ellipse cx="178" cy="72" rx="16" ry="11" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+        <text x="169" y="76" font-family="'DM Mono',monospace" font-size="9" fill="#2563eb" font-weight="500">+1.18%</text>
+        <circle cx="164" cy="80" r="2" fill="#bfdbfe"/>
+        <circle cx="161" cy="84" r="1.5" fill="#bfdbfe"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SMIC STRIP -->
+<div class="smic-strip">
+  <div class="smic-inner">
+    <div class="smic-cell">
+      <!-- icône calendrier -->
+      <svg class="smic-icon" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="10" fill="#f0fdf4"/>
+        <rect x="9" y="11" width="18" height="16" rx="3" fill="none" stroke="#16a34a" stroke-width="1.5"/>
+        <path d="M9 16h18" stroke="#16a34a" stroke-width="1.5"/>
+        <path d="M14 9v4M22 9v4" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/>
+        <rect x="13" y="20" width="3" height="3" rx="1" fill="#16a34a"/>
+        <rect x="19" y="20" width="3" height="3" rx="1" fill="#16a34a"/>
+      </svg>
+      <div class="smic-text">
+        <div class="smic-lbl">SMIC brut / mois</div>
+        <div class="smic-val">1 823,03 €</div>
+        <div class="smic-delta">↑ +1,18 % depuis jan. 2026</div>
+      </div>
+    </div>
+    <div class="smic-cell">
+      <!-- icône portefeuille -->
+      <svg class="smic-icon" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="10" fill="#eff6ff"/>
+        <rect x="8" y="13" width="20" height="14" rx="3" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+        <path d="M12 13v-2a2 2 0 012-2h8a2 2 0 012 2v2" stroke="#2563eb" stroke-width="1.5"/>
+        <circle cx="23" cy="20" r="2" fill="#2563eb"/>
+      </svg>
+      <div class="smic-text">
+        <div class="smic-lbl">SMIC net / mois</div>
+        <div class="smic-val">1 443,11 €</div>
+        <div class="smic-delta">↑ +16 € vs 2025</div>
+      </div>
+    </div>
+    <div class="smic-cell">
+      <!-- icône horloge -->
+      <svg class="smic-icon" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="10" fill="#fff7ed"/>
+        <circle cx="18" cy="19" r="9" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+        <path d="M18 14v5l3 2" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="smic-text">
+        <div class="smic-lbl">Taux horaire brut</div>
+        <div class="smic-val">12,02 €/h</div>
+        <div class="smic-delta">↑ vs 11,88 € en 2025</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
 <main>
-  <h1>Convertisseur salaire<br /><em>brut ↔ net</em> 2025</h1>
-  <p class="subtitle">Calcul instantané basé sur les taux de cotisations sociales en vigueur en France.</p>
+  <div class="ad-slot">[ Espace publicitaire — AdSense 728×90 ]</div>
 
-  <!-- ADSENSE — leaderboard haut de page -->
-  <div class="ad-slot">[ AdSense 728×90 — à activer après approbation ]</div>
-
+  <!-- CALCULATEUR -->
   <div class="card">
-
-    <!-- Mode brut→net ou net→brut -->
     <div class="toggle-wrap">
       <button class="toggle-btn active" id="btn-brut" onclick="setMode('brut')">Brut → Net</button>
-      <button class="toggle-btn" id="btn-net" onclick="setMode('net')">Net → Brut</button>
+      <button class="toggle-btn"        id="btn-net"  onclick="setMode('net')">Net → Brut</button>
     </div>
-
-    <!-- Période -->
     <div class="period-wrap">
-      <button class="period-btn active" data-period="mois" onclick="setPeriod('mois')">Mensuel</button>
-      <button class="period-btn" data-period="annee" onclick="setPeriod('annee')">Annuel</button>
-      <button class="period-btn" data-period="heure" onclick="setPeriod('heure')">Horaire</button>
+      <button class="period-btn active" data-p="mois"  onclick="setPeriod('mois')">Mensuel</button>
+      <button class="period-btn"        data-p="annee" onclick="setPeriod('annee')">Annuel</button>
+      <button class="period-btn"        data-p="heure" onclick="setPeriod('heure')">Horaire</button>
+    </div>
+    <label id="lbl-input">Salaire brut</label>
+    <div class="input-wrap">
+      <input type="number" id="salary-input" placeholder="2 500" oninput="calculate()" autocomplete="off"/>
+      <span class="currency">€</span>
     </div>
 
-    <!-- Input -->
-    <div class="field">
-      <label id="input-label">Salaire brut</label>
-      <div class="input-wrap">
-        <input type="number" id="salary-input" placeholder="2 500" oninput="calculate()" />
-        <span class="currency">€</span>
+    <div class="result-card" id="result-card">
+      <div class="result-lbl" id="lbl-result">Salaire net estimé</div>
+      <div class="result-main" id="r-main">—</div>
+      <div class="rg">
+        <div class="rg-item"><div class="rg-lbl">Annuel net</div><div class="rg-val" id="r-annual">—</div></div>
+        <div class="rg-item"><div class="rg-lbl">Cotisations salariales</div><div class="rg-val" id="r-charges">—</div></div>
+        <div class="rg-item"><div class="rg-lbl">Taux de cotisation</div><div class="rg-val green">~21,9 %</div></div>
+        <div class="rg-item"><div class="rg-lbl">Horaire net</div><div class="rg-val" id="r-hourly">—</div></div>
       </div>
     </div>
 
-    <!-- Résultat -->
-    <div class="result-box">
-      <div class="result-label" id="result-label">Salaire net estimé</div>
-      <div class="result-value" id="result-main">— <span>€ / mois</span></div>
-      <div class="result-sub">
-        <div class="result-sub-item">
-          <div class="rs-label">Annuel</div>
-          <div class="rs-val" id="result-annual">—</div>
+    <div class="cf">
+      <span>Taux cotisations salariales 2026 : <strong style="color:var(--text)">~21,9 %</strong> (non-cadre)</span>
+      <a href="#methode">Comment c'est calculé ?</a>
+    </div>
+  </div>
+
+  <div class="ad-slot">[ Espace publicitaire — AdSense 300×250 ]</div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-tag">Comprendre le calcul</div>
+    <h2 style="font-size:1.4rem;font-weight:800;letter-spacing:-.03em">Brut, net, cotisations :<br/>tout comprendre en 3 points</h2>
+    <div class="how-grid">
+
+      <div class="how-card">
+        <div class="how-illo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="14" fill="#eff6ff"/>
+            <rect x="12" y="14" width="24" height="22" rx="4" fill="none" stroke="#2563eb" stroke-width="1.8"/>
+            <path d="M17 22h14M17 27h10" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="34" cy="34" r="6" fill="#2563eb"/>
+            <path d="M31 34l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div class="result-sub-item">
-          <div class="rs-label">Cotisations</div>
-          <div class="rs-val" id="result-charges">—</div>
-        </div>
-        <div class="result-sub-item">
-          <div class="rs-label">Taux de cotisation</div>
-          <div class="rs-val" id="result-rate">~22 %</div>
-        </div>
-        <div class="result-sub-item">
-          <div class="rs-label">Horaire net</div>
-          <div class="rs-val" id="result-hourly">—</div>
-        </div>
+        <div class="how-title">Le salaire brut</div>
+        <div class="how-desc">C'est le montant inscrit dans votre contrat de travail. Il sert de base au calcul de toutes les cotisations — sociales et patronales.</div>
       </div>
+
+      <div class="how-card">
+        <div class="how-illo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="14" fill="#f0fdf4"/>
+            <circle cx="24" cy="24" r="12" fill="none" stroke="#16a34a" stroke-width="1.8"/>
+            <path d="M18 24l4 4 8-8" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="how-title">Le salaire net</div>
+        <div class="how-desc">Ce que vous recevez réellement sur votre compte. Brut moins les cotisations salariales (~21,9 %). L'impôt sur le revenu est prélevé en plus, à la source.</div>
+      </div>
+
+      <div class="how-card">
+        <div class="how-illo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="14" fill="#fff7ed"/>
+            <!-- Graphique en secteurs simplifié -->
+            <circle cx="24" cy="24" r="11" fill="none" stroke="#e8e8e4" stroke-width="6"/>
+            <!-- arc 21.9% -->
+            <circle cx="24" cy="24" r="11" fill="none" stroke="#ea580c" stroke-width="6"
+              stroke-dasharray="15.1 53.9" stroke-dashoffset="14" stroke-linecap="butt"/>
+            <text x="24" y="27" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" fill="#ea580c" font-weight="500">22%</text>
+          </svg>
+        </div>
+        <div class="how-title">Les cotisations</div>
+        <div class="how-desc">~21,9 % du brut pour un non-cadre. Elles financent la retraite, l'assurance maladie, le chômage, la CSG et la CRDS.</div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="rates-row">
-      <span>Taux salarié moyen 2025 : ~22 %</span>
-      <a href="#methodologie">Comment c'est calculé ?</a>
+  <!-- TABLE EXEMPLES -->
+  <section class="table-section" id="methode">
+    <div class="section-tag">Référence rapide</div>
+    <h2 style="font-size:1.4rem;font-weight:800;letter-spacing:-.03em">Tableau de conversion 2026</h2>
+    <p style="color:var(--text2);font-size:.92rem;margin-top:8px">Taux de cotisations salariales : 21,9 % (non-cadre, secteur privé).</p>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Brut / mois</th><th>Net / mois</th><th>Net / an</th><th>Horaire net</th></tr></thead>
+        <tbody id="ex-tbody"></tbody>
+      </table>
     </div>
+  </section>
 
-  </div>
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-tag">Questions fréquentes</div>
+    <h2 style="font-size:1.4rem;font-weight:800;letter-spacing:-.03em;margin-bottom:8px">Ce que tout salarié se demande</h2>
 
-  <!-- ADSENSE — carré milieu de page -->
-  <div class="ad-slot">[ AdSense 300×250 — à activer après approbation ]</div>
-
-  <!-- ── CONTENU SEO ── -->
-  <div class="content">
-
-    <h2>Exemples de conversion brut / net</h2>
-    <p>Voici quelques exemples courants basés sur le taux de cotisations salariales moyen de 22 % en 2025 :</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Brut mensuel</th>
-          <th>Net mensuel</th>
-          <th>Net annuel</th>
-        </tr>
-      </thead>
-      <tbody id="examples-table">
-        <!-- rempli par JS -->
-      </tbody>
-    </table>
-
-    <h2 id="methodologie">Comment fonctionne le calcul ?</h2>
-    <p>
-      En France, le salaire net correspond au salaire brut diminué des <strong>cotisations sociales salariales</strong>.
-      Ces cotisations financent l'assurance maladie, la retraite, le chômage et la prévoyance.
-    </p>
-    <p>
-      Pour un salarié du secteur privé non cadre, le taux global de cotisations salariales tourne autour de <strong>22 %</strong> du brut.
-      Pour un cadre, ce taux est légèrement supérieur (environ 25 %) en raison des cotisations de retraite complémentaire Agirc-Arrco plus élevées.
-    </p>
-    <p>
-      <strong>Formule simplifiée :</strong> Salaire net ≈ Salaire brut × 0,78 (non-cadre) ou × 0,75 (cadre).
-    </p>
-    <p>
-      Note : ce calcul ne tient pas compte de l'impôt sur le revenu, qui est propre à chaque foyer fiscal et prélevé à la source depuis 2019.
-    </p>
-
-    <h2>Quelle est la différence entre brut et net ?</h2>
-    <p>
-      Le <strong>salaire brut</strong> est le montant total que votre employeur vous verse avant déduction des cotisations sociales.
-      C'est le chiffre qui figure dans votre contrat de travail.
-    </p>
-    <p>
-      Le <strong>salaire net</strong> est ce que vous percevez réellement sur votre compte bancaire chaque mois,
-      après déduction des cotisations salariales. C'est le montant affiché sur votre bulletin de paie sous la ligne "Net à payer".
-    </p>
-
-    <h2>Le SMIC en 2025</h2>
-    <p>
-      Depuis le 1er novembre 2024, le SMIC brut mensuel est fixé à <strong>1 801,80 €</strong> pour 35 heures hebdomadaires,
-      soit un net d'environ <strong>1 426 €</strong> par mois.
-    </p>
-
-  </div>
+    <div class="faq-item">
+      <div class="faq-q">Quelle est la différence entre brut et net ?</div>
+      <div class="faq-a">Le <strong>brut</strong> est le salaire convenu dans votre contrat. Le <strong>net</strong> est ce que vous percevez après déduction des cotisations salariales. En 2026, la différence est d'environ 21,9 % pour un non-cadre.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Pourquoi mon net réel est parfois différent ?</div>
+      <div class="faq-a">Ce calculateur utilise un taux moyen. Votre fiche de paie peut varier selon votre mutuelle d'entreprise, des primes, des exonérations spécifiques ou votre statut cadre/non-cadre.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">L'impôt sur le revenu est-il inclus ?</div>
+      <div class="faq-a">Non. Depuis 2019, l'impôt sur le revenu est prélevé à la source directement sur votre salaire net. Son montant dépend de votre situation personnelle (foyer fiscal, revenus totaux, enfants à charge…) et n'est pas inclus dans ce calcul.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Quel est le SMIC en 2026 ?</div>
+      <div class="faq-a">Depuis le <strong>1er janvier 2026</strong>, le SMIC brut mensuel est de <strong>1 823,03 €</strong> (taux horaire : 12,02 €), soit un net estimé de <strong>1 443,11 €</strong>. Il a été revalorisé de +1,18 % conformément à la formule légale.</div>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-  © 2025 SalaireCalc.fr — Calcul indicatif, non contractuel. Taux 2025.
+  <span>© 2026 SalaireCalc.fr — Calcul indicatif, non contractuel</span>
+  <span>Sources : <a href="https://www.info.gouv.fr" target="_blank" rel="noopener">info.gouv.fr</a> · <a href="https://www.legisocial.fr" target="_blank" rel="noopener">LégiSocial</a></span>
 </footer>
 
 <script>
-  // ── État ──
-  let mode = 'brut';   // 'brut' | 'net'
-  let period = 'mois'; // 'mois' | 'annee' | 'heure'
+  const TAUX  = 0.2194;
+  const H_MOI = 151.67;
+  let mode = 'brut', period = 'mois';
 
-  // Taux de cotisations salariales moyens France 2025
-  const TAUX_NON_CADRE = 0.2194; // ~21,94 %
-  // On utilise un taux unique simplifié pour ce MVP
-  const TAUX = TAUX_NON_CADRE;
-  const HEURES_MOIS = 151.67; // 35h/semaine → mensuel
+  const fE  = n => !n||isNaN(n)?'—':new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+  const fEh = n => !n||isNaN(n)?'—':new Intl.NumberFormat('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' €';
+  const toNet  = b => b*(1-TAUX);
+  const toBrut = n => n/(1-TAUX);
+  const toMon  = v => period==='annee'?v/12:period==='heure'?v*H_MOI:v;
+  const frMon  = v => period==='annee'?v*12:period==='heure'?v/H_MOI:v;
+  const sfx    = ()=>({mois:'/ mois',annee:'/ an',heure:'/ h'}[period]);
 
-  // ── Helpers ──
-  function fmt(n) {
-    if (isNaN(n) || n === null) return '—';
-    return new Intl.NumberFormat('fr-FR', {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(Math.round(n)) + ' €';
-  }
-
-  function brutToNet(brut) { return brut * (1 - TAUX); }
-  function netToBrut(net)  { return net  / (1 - TAUX); }
-
-  // ── Périodes → conversion mensuelle ──
-  function toMonthly(val) {
-    if (period === 'annee') return val / 12;
-    if (period === 'heure') return val * HEURES_MOIS;
-    return val;
-  }
-  function fromMonthly(val) {
-    if (period === 'annee') return val * 12;
-    if (period === 'heure') return val / HEURES_MOIS;
-    return val;
-  }
-
-  function periodLabel() {
-    return { mois: '/ mois', annee: '/ an', heure: '/ h' }[period];
-  }
-
-  // ── Calcul principal ──
-  function calculate() {
-    const raw = parseFloat(document.getElementById('salary-input').value);
-
-    if (!raw || raw <= 0) {
-      document.getElementById('result-main').innerHTML = '— <span>€ ' + periodLabel() + '</span>';
-      document.getElementById('result-annual').textContent = '—';
-      document.getElementById('result-charges').textContent = '—';
-      document.getElementById('result-hourly').textContent = '—';
-      return;
+  function calculate(){
+    const raw=parseFloat(document.getElementById('salary-input').value);
+    const rc=document.getElementById('result-card');
+    if(!raw||raw<=0){
+      document.getElementById('r-main').innerHTML='—';
+      ['r-annual','r-charges','r-hourly'].forEach(id=>document.getElementById(id).textContent='—');
+      rc.classList.remove('lit');return;
     }
-
-    const monthly = toMonthly(raw);
-    let netMonthly, brutMonthly;
-
-    if (mode === 'brut') {
-      brutMonthly = monthly;
-      netMonthly  = brutToNet(monthly);
-    } else {
-      netMonthly  = monthly;
-      brutMonthly = netToBrut(monthly);
-    }
-
-    const charges   = brutMonthly - netMonthly;
-    const netPeriod = fromMonthly(netMonthly);
-    const hourly    = netMonthly / HEURES_MOIS;
-
-    document.getElementById('result-main').innerHTML =
-      fmt(netPeriod).replace(' €', '') + ' <span>€ ' + periodLabel() + '</span>';
-    document.getElementById('result-annual').textContent = fmt(netMonthly * 12) + '/an';
-    document.getElementById('result-charges').textContent = fmt(charges) + '/mois';
-    document.getElementById('result-hourly').textContent = fmt(hourly).replace(' €','') + ' €/h';
+    rc.classList.add('lit');
+    const m=toMon(raw);
+    const bM=mode==='brut'?m:toBrut(m);
+    const nM=mode==='brut'?toNet(m):m;
+    const nP=frMon(nM);
+    document.getElementById('r-main').innerHTML=`${fE(nP).replace(' €','')}<span class="unit">€ ${sfx()}</span>`;
+    document.getElementById('r-annual').textContent=fE(nM*12)+'/an';
+    document.getElementById('r-charges').textContent=fE(bM-nM)+'/mois';
+    document.getElementById('r-hourly').textContent=fEh(nM/H_MOI)+'/h';
   }
 
-  // ── UI helpers ──
-  function setMode(m) {
-    mode = m;
-    document.getElementById('btn-brut').classList.toggle('active', m === 'brut');
-    document.getElementById('btn-net').classList.toggle('active', m === 'net');
-    document.getElementById('input-label').textContent = m === 'brut' ? 'Salaire brut' : 'Salaire net';
-    document.getElementById('result-label').textContent = m === 'brut' ? 'Salaire net estimé' : 'Salaire brut estimé';
-    document.getElementById('salary-input').placeholder = m === 'brut' ? '2 500' : '1 950';
+  function setMode(m){
+    mode=m;
+    ['brut','net'].forEach(x=>document.getElementById('btn-'+x).classList.toggle('active',x===m));
+    document.getElementById('lbl-input').textContent=m==='brut'?'Salaire brut':'Salaire net';
+    document.getElementById('lbl-result').textContent=m==='brut'?'Salaire net estimé':'Salaire brut estimé';
+    document.getElementById('salary-input').placeholder=m==='brut'?'2 500':'1 950';
     calculate();
   }
 
-  function setPeriod(p) {
-    period = p;
-    document.querySelectorAll('.period-btn').forEach(b => {
-      b.classList.toggle('active', b.dataset.period === p);
-    });
+  function setPeriod(p){
+    period=p;
+    document.querySelectorAll('.period-btn').forEach(b=>b.classList.toggle('active',b.dataset.p===p));
     calculate();
   }
 
-  // ── Table d'exemples ──
-  function buildExamples() {
-    const bruts = [1802, 2000, 2500, 3000, 3500, 4000, 5000, 6000];
-    const tbody = document.getElementById('examples-table');
-    tbody.innerHTML = bruts.map(b => {
-      const n = brutToNet(b);
-      return `<tr>
-        <td>${fmt(b)}</td>
-        <td>${fmt(n)}</td>
-        <td>${fmt(n * 12)}</td>
-      </tr>`;
+  (function buildTable(){
+    const rows=[{b:1823.03,smic:true},{b:2000},{b:2500},{b:3000},{b:3500},{b:4000},{b:5000},{b:6000}];
+    document.getElementById('ex-tbody').innerHTML=rows.map(r=>{
+      const n=toNet(r.b);
+      return`<tr${r.smic?' class="smic-row"':''}>
+        <td>${fE(r.b)}</td>
+        <td class="green">${fE(n)}</td>
+        <td>${fE(n*12)}</td>
+        <td>${fEh(n/H_MOI)}/h</td></tr>`;
     }).join('');
-  }
-
-  // ── Init ──
-  buildExamples();
+  })();
 </script>
-
 </body>
 </html>
