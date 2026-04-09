@@ -12,202 +12,241 @@
   </script>
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg:#ffffff;--bg2:#f8f8f6;--bg3:#f0f0ec;
-      --border:#e8e8e4;--border2:#d4d4ce;
-      --text:#1a1a18;--text2:#6b6b65;--text3:#a8a8a2;
-      --accent:#2563eb;--accent-l:#eff6ff;--accent-b:#bfdbfe;
-      --green:#16a34a;--green-l:#f0fdf4;--green-b:#bbf7d0;
-      --orange:#ea580c;--orange-l:#fff7ed;
-      --r:16px;--rsm:10px;
-      --mono:'DM Mono',monospace;
-      --sans:'Plus Jakarta Sans',sans-serif;
+      --bg:       #fffcf8;
+      --bg2:      #fdf6ee;
+      --bg3:      #f5ede0;
+      --border:   #ecddd0;
+      --border2:  #dcc9b5;
+      --text:     #1c1410;
+      --text2:    #6b5a4e;
+      --text3:    #b09880;
+      --orange:   #e8450a;
+      --orange-l: #fff3ec;
+      --orange-b: #fcd5bb;
+      --orange-d: #c73a08;
+      --green:    #2d7a3e;
+      --green-l:  #edf7f0;
+      --green-b:  #b6dfc0;
+      --blue:     #1a56a0;
+      --blue-l:   #eef4fc;
+      --r:        18px;
+      --rsm:      10px;
+      --shadow-sm: 0 1px 3px rgba(28,20,16,.06), 0 1px 2px rgba(28,20,16,.04);
+      --shadow:    0 4px 16px rgba(28,20,16,.08), 0 1px 4px rgba(28,20,16,.05);
+      --shadow-lg: 0 12px 40px rgba(28,20,16,.12), 0 4px 12px rgba(28,20,16,.06);
+      --mono: 'DM Mono', monospace;
+      --sans: 'Plus Jakarta Sans', sans-serif;
+      --display: 'Fraunces', serif;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-    /* HEADER */
-    header{border-bottom:1px solid var(--border);padding:0 28px;height:48px;display:flex;align-items:center;justify-content:space-between;background:#fff;position:sticky;top:0;z-index:100}
-    .logo{font-family:var(--mono);font-size:13px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:7px;font-weight:500}
-    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-    .badge{font-size:11px;font-weight:600;background:var(--green-l);border:1px solid var(--green-b);color:var(--green);padding:2px 9px;border-radius:99px}
+    /* ── HEADER ── */
+    header{border-bottom:1px solid var(--border);padding:0 28px;height:52px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,252,248,.92);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;box-shadow:var(--shadow-sm)}
+    .logo{font-family:var(--mono);font-size:13px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:500}
+    .logo-dot{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px var(--orange-b)}
+    .badge{font-size:11px;font-weight:700;background:var(--green-l);border:1px solid var(--green-b);color:var(--green);padding:3px 10px;border-radius:99px;letter-spacing:.02em}
 
-    /* FOLD */
-    .fold{display:grid;grid-template-columns:1fr 3fr;gap:0;height:calc(100vh - 48px)}
+    /* ── FOLD ── */
+    .fold{display:grid;grid-template-columns:1fr 3fr;height:calc(100vh - 52px)}
 
-    /* GAUCHE */
-    .fold-left{background:var(--bg2);border-right:1px solid var(--border);padding:32px 36px;display:flex;flex-direction:column;gap:20px;overflow:hidden}
+    /* ── GAUCHE ── */
+    .fold-left{
+      background:linear-gradient(160deg, #e8450a 0%, #c73a08 60%, #9a2d06 100%);
+      padding:36px 28px;
+      display:flex;flex-direction:column;gap:0;overflow:hidden;
+      position:relative;
+    }
+    /* cercles déco */
+    .fold-left::before{
+      content:'';position:absolute;
+      width:200px;height:200px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.12);
+      bottom:-60px;right:-60px;
+    }
+    .fold-left::after{
+      content:'';position:absolute;
+      width:120px;height:120px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.08);
+      top:20px;right:20px;
+    }
 
-    h1{font-size:clamp(1.3rem,2.3vw,1.85rem);font-weight:800;line-height:1.15;letter-spacing:-.035em}
-    h1 .accent{color:var(--accent)}
-    .hero-sub{font-size:.85rem;color:var(--text2);line-height:1.7}
-    .hero-badges{display:flex;flex-direction:column;gap:7px}
-    .hbadge{display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:500;color:var(--text2)}
+    .left-top{flex:1;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
+    h1{font-family:var(--display);font-size:clamp(1.5rem,2.5vw,2.1rem);font-weight:300;line-height:1.15;color:#fff;font-style:italic}
+    h1 strong{font-weight:700;font-style:normal}
+    .hero-sub{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.7}
 
-    /* pub dans la colonne gauche */
-    .ad-left{border:1px dashed var(--border2);border-radius:var(--r);background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--text3);font-size:.7rem;font-family:var(--mono);flex:1;min-height:0}
-    .ad-left span{font-size:.65rem;color:var(--text3)}
+    .hero-badges{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+    .hbadge{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.85)}
+    .hbadge-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0}
 
-    /* DROITE */
-    .fold-right{padding:24px 30px;display:flex;flex-direction:column;justify-content:center;gap:12px;overflow-y:auto;background:#fff}
+    /* pub gauche */
+    .ad-left{
+      border:1px dashed rgba(255,255,255,.2);
+      border-radius:var(--r);
+      background:rgba(255,255,255,.07);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+      color:rgba(255,255,255,.4);font-size:.68rem;font-family:var(--mono);
+      flex:1;min-height:0;margin-top:20px;position:relative;z-index:1;
+      max-height:160px;
+    }
 
-    .calc-title{font-size:.73rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em}
+    /* ── DROITE ── */
+    .fold-right{padding:24px 32px;display:flex;flex-direction:column;justify-content:center;gap:11px;overflow-y:auto;background:var(--bg)}
+
+    .calc-title{font-size:.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.09em}
 
     /* TOGGLE */
-    .toggle-wrap{display:flex;gap:4px;background:var(--bg2);padding:4px;border-radius:var(--rsm);border:1px solid var(--border)}
-    .toggle-btn{flex:1;padding:7px 10px;border-radius:7px;border:none;background:transparent;color:var(--text2);font-family:var(--sans);font-size:.84rem;font-weight:600;cursor:pointer;transition:all .18s}
-    .toggle-btn.active{background:#fff;color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    .toggle-wrap{display:flex;gap:4px;background:var(--bg3);padding:4px;border-radius:var(--rsm);border:1px solid var(--border)}
+    .toggle-btn{flex:1;padding:8px 10px;border-radius:7px;border:none;background:transparent;color:var(--text2);font-family:var(--sans);font-size:.84rem;font-weight:600;cursor:pointer;transition:all .2s}
+    .toggle-btn.active{background:#fff;color:var(--orange);box-shadow:var(--shadow-sm)}
+
+    /* STATUT */
+    .status-wrap{display:flex;flex-direction:column;gap:7px}
+    .status-lbl{font-size:.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em}
+    .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+    .status-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:#fff;cursor:pointer;transition:all .18s;font-family:var(--sans);box-shadow:var(--shadow-sm)}
+    .status-btn:hover:not(.active){border-color:var(--border2);transform:translateY(-1px);box-shadow:var(--shadow)}
+    .status-btn.active{border-color:var(--orange);background:var(--orange-l);box-shadow:0 0 0 3px var(--orange-b)}
+    .sb-icon{font-size:1.05rem;line-height:1}
+    .sb-label{font-size:.63rem;font-weight:600;color:var(--text2);line-height:1.3;text-align:center}
+    .status-btn.active .sb-label{color:var(--orange-d)}
+    .sb-rate{font-family:var(--mono);font-size:.6rem;color:var(--text3)}
+    .status-btn.active .sb-rate{color:var(--orange)}
 
     /* PERIOD */
     .period-wrap{display:flex;gap:5px}
-    .period-btn{padding:4px 11px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--text3);font-family:var(--sans);font-size:.77rem;font-weight:500;cursor:pointer;transition:all .15s}
-    .period-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
+    .period-btn{padding:4px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--text3);font-family:var(--sans);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s}
+    .period-btn.active{border-color:var(--orange);color:var(--orange);background:var(--orange-l)}
     .period-btn:hover:not(.active){color:var(--text);border-color:var(--border2)}
 
-    /* INPUT + SLIDER groupe */
-    .input-group{display:flex;flex-direction:column;gap:8px}
-    .field-lbl{font-size:.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
+    /* INPUT */
+    .field-lbl{font-size:.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:7px}
     .input-wrap{position:relative}
-    .input-wrap input[type=number]{width:100%;background:var(--bg2);border:2px solid var(--border);border-radius:var(--rsm);color:var(--text);font-family:var(--mono);font-size:1.7rem;font-weight:500;padding:12px 50px 12px 16px;outline:none;transition:border-color .18s,background .18s;-moz-appearance:textfield}
-    .input-wrap input[type=number]::-webkit-outer-spin-button,
-    .input-wrap input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
-    .input-wrap input[type=number]:focus{border-color:var(--accent);background:#fff}
-    .input-wrap input[type=number]::placeholder{color:var(--text3)}
-    .currency{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-family:var(--mono);font-size:.95rem;pointer-events:none}
+    .input-wrap input[type=number]{
+      width:100%;background:#fff;
+      border:2px solid var(--border);border-radius:var(--rsm);
+      color:var(--text);font-family:var(--mono);
+      font-size:1.75rem;font-weight:500;
+      padding:12px 50px 12px 16px;outline:none;
+      transition:border-color .2s,box-shadow .2s;
+      -moz-appearance:textfield;
+      box-shadow:var(--shadow-sm);
+    }
+    .input-wrap input::-webkit-outer-spin-button,.input-wrap input::-webkit-inner-spin-button{-webkit-appearance:none}
+    .input-wrap input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-b)}
+    .input-wrap input::placeholder{color:var(--text3)}
+    .currency{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--text3);font-family:var(--mono);font-size:.95rem;pointer-events:none}
 
     /* SLIDER */
-    .slider-wrap{display:flex;align-items:center;gap:10px}
-    .slider-labels{display:flex;justify-content:space-between;font-size:.68rem;color:var(--text3);font-family:var(--mono);margin-top:2px}
-    input[type=range]{
-      -webkit-appearance:none;appearance:none;
-      width:100%;height:4px;
-      border-radius:99px;
-      background:var(--border);
-      outline:none;cursor:pointer;
-    }
-    input[type=range]::-webkit-slider-thumb{
-      -webkit-appearance:none;appearance:none;
-      width:18px;height:18px;border-radius:50%;
-      background:var(--accent);
-      border:2px solid #fff;
-      box-shadow:0 1px 4px rgba(37,99,235,.3);
-      cursor:pointer;transition:transform .1s;
-    }
-    input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
-    input[type=range]::-moz-range-thumb{
-      width:18px;height:18px;border-radius:50%;
-      background:var(--accent);border:2px solid #fff;
-      box-shadow:0 1px 4px rgba(37,99,235,.3);cursor:pointer;
-    }
-    .slider-btn{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:#fff;color:var(--text2);font-size:1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;user-select:none}
-    .slider-btn:hover{background:var(--accent-l);border-color:var(--accent-b);color:var(--accent)}
-    .slider-btn:active{transform:scale(.92)}
+    .slider-wrap{display:flex;align-items:center;gap:9px}
+    .slider-labels{display:flex;justify-content:space-between;font-size:.66rem;color:var(--text3);font-family:var(--mono);margin-top:3px}
+    input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:99px;background:var(--border);outline:none;cursor:pointer}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--orange);border:2px solid #fff;box-shadow:0 2px 6px rgba(232,69,10,.35);cursor:pointer;transition:transform .1s}
+    input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+    input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--orange);border:2px solid #fff;cursor:pointer}
+    .slider-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--border);background:#fff;color:var(--text2);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;user-select:none;box-shadow:var(--shadow-sm)}
+    .slider-btn:hover{background:var(--orange-l);border-color:var(--orange-b);color:var(--orange)}
+    .slider-btn:active{transform:scale(.9)}
 
     /* RESULT */
-    .result-card{background:var(--bg2);border:2px solid var(--border);border-radius:var(--rsm);padding:14px 16px;transition:border-color .25s,background .25s}
-    .result-card.lit{border-color:var(--accent-b);background:var(--accent-l)}
-    .result-lbl{font-size:.68rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
-    .result-card.lit .result-lbl{color:var(--accent)}
-    .result-main{font-family:var(--mono);font-size:2rem;font-weight:500;color:var(--text);letter-spacing:-.03em;line-height:1;margin-bottom:12px}
-    .result-card.lit .result-main{color:var(--accent)}
-    .result-main .unit{font-size:.82rem;color:var(--text3);font-weight:400;margin-left:4px}
-    .rg{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-    .rg-item{background:#fff;border-radius:7px;padding:8px 11px;border:1px solid var(--border)}
-    .result-card.lit .rg-item{border-color:var(--accent-b)}
-    .rg-lbl{font-size:.65rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
-    .rg-val{font-family:var(--mono);font-size:.85rem;color:var(--text2)}
+    .result-card{background:#fff;border:2px solid var(--border);border-radius:var(--r);padding:16px 20px;box-shadow:var(--shadow);transition:all .3s}
+    .result-card.lit{border-color:var(--orange-b);box-shadow:0 4px 20px rgba(232,69,10,.12)}
+    .result-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+    .result-lbl{font-size:.68rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em}
+    .result-card.lit .result-lbl{color:var(--orange)}
+    .result-main{font-family:var(--display);font-size:2.6rem;font-weight:700;color:var(--text);letter-spacing:-.02em;line-height:1;font-style:italic}
+    .result-card.lit .result-main{color:var(--orange)}
+    .result-unit{font-size:.9rem;color:var(--text3);font-weight:300;font-family:var(--sans);font-style:normal;margin-left:4px}
+    .rg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+    .rg-item{background:var(--bg2);border-radius:8px;padding:9px 12px;border:1px solid var(--border)}
+    .result-card.lit .rg-item{border-color:var(--orange-b);background:var(--orange-l)}
+    .rg-lbl{font-size:.65rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+    .rg-val{font-family:var(--mono);font-size:.88rem;color:var(--text2)}
+    .rg-val.orange{color:var(--orange);font-weight:500}
     .rg-val.green{color:var(--green);font-weight:500}
 
-    /* STATUS SELECTOR */
-    .status-wrap{margin-bottom:12px}
-    .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-    .status-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 6px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;transition:all .15s;text-align:center;font-family:var(--sans)}
-    .status-btn:hover:not(.active){border-color:var(--border2);background:var(--bg2)}
-    .status-btn.active{border-color:var(--accent);background:var(--accent-l)}
-    .sb-icon{font-size:1.1rem;line-height:1}
-    .sb-label{font-size:.68rem;font-weight:600;color:var(--text2);line-height:1.3}
-    .status-btn.active .sb-label{color:var(--accent)}
-    .sb-rate{font-family:var(--mono);font-size:.65rem;color:var(--text3);font-weight:500}
-    .status-btn.active .sb-rate{color:var(--accent)}
-
     /* POSITION BOX */
-    .position-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 16px;margin-top:10px}
+    .position-box{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow-sm);display:none}
     .pos-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-    .pos-title{font-size:.7rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
-    .pos-label{font-size:.78rem;font-weight:700;color:var(--accent);font-family:var(--mono)}
-    .pos-track-wrap{padding:0 2px;margin-bottom:4px}
-    .pos-track{position:relative;height:6px;background:var(--border);border-radius:99px;margin:16px 0 6px}
-    .pos-fill{position:absolute;left:0;top:0;height:100%;border-radius:99px;background:linear-gradient(to right,var(--green),var(--accent));transition:width .35s ease}
-    .pos-thumb{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.15);transform:translate(-50%,-50%);transition:left .35s ease}
-    .pos-mark{position:absolute;top:-14px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px}
-    .pos-mark::after{content:'';width:1px;height:6px;background:var(--border2);margin-top:14px}
-    .pos-mark span{font-size:.58rem;color:var(--text3);white-space:nowrap;font-family:var(--mono)}
-    .pos-mark-med span{color:var(--accent);font-weight:600}
-    .pos-mark-med::after{background:var(--accent);opacity:.4}
-    .pos-legend{display:flex;justify-content:space-between;font-size:.62rem;color:var(--text3);font-family:var(--mono);margin-bottom:8px}
-    .pos-text{font-size:.75rem;color:var(--text2);line-height:1.5;padding-top:6px;border-top:1px solid var(--border)}
+    .pos-title{font-size:.68rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em}
+    .pos-label{font-size:.78rem;font-weight:700;color:var(--orange);font-family:var(--mono)}
+    .pos-track{position:relative;height:6px;background:var(--bg3);border-radius:99px;margin:14px 0 4px}
+    .pos-fill{position:absolute;left:0;top:0;height:100%;border-radius:99px;background:linear-gradient(to right,var(--green),var(--orange));transition:width .4s ease}
+    .pos-thumb{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:var(--orange);border:2px solid #fff;box-shadow:0 2px 6px rgba(232,69,10,.3);transform:translate(-50%,-50%);transition:left .4s ease}
+    .pos-mark{position:absolute;top:-13px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
+    .pos-mark::after{content:'';width:1px;height:6px;background:var(--border2);margin-top:13px}
+    .pos-mark span{font-size:.56rem;color:var(--text3);white-space:nowrap;font-family:var(--mono)}
+    .pos-mark-med span{color:var(--orange);font-weight:700}
+    .pos-mark-med::after{background:var(--orange);opacity:.5}
+    .pos-legend{display:flex;justify-content:space-between;font-size:.6rem;color:var(--text3);font-family:var(--mono);margin-bottom:8px}
+    .pos-text{font-size:.74rem;color:var(--text2);line-height:1.55;padding-top:8px;border-top:1px solid var(--border)}
 
-    .calc-note{font-size:.71rem;color:var(--text3);display:flex;justify-content:space-between}
-    .calc-note a{color:var(--accent);text-decoration:none;font-weight:500}
+    /* NOTE */
+    .calc-note{font-size:.7rem;color:var(--text3);display:flex;justify-content:space-between;align-items:center}
+    .calc-note a{color:var(--orange);text-decoration:none;font-weight:600}
     .calc-note a:hover{text-decoration:underline}
 
-    /* BELOW */
-    .below{max-width:800px;margin:0 auto;padding:48px 32px 80px}
+    /* ── BELOW ── */
+    .below{max-width:800px;margin:0 auto;padding:56px 32px 80px}
     .ad-slot{background:var(--bg2);border:1px dashed var(--border2);border-radius:var(--r);height:76px;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:.72rem;font-family:var(--mono);margin-bottom:48px}
 
-    /* smic */
     .smic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:52px}
-    .smic-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px;display:flex;align-items:flex-start;gap:12px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+    .smic-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:20px;display:flex;align-items:flex-start;gap:13px;box-shadow:var(--shadow-sm);transition:box-shadow .2s}
+    .smic-card:hover{box-shadow:var(--shadow)}
     .smic-icon{width:38px;height:38px;flex-shrink:0}
     .smic-lbl{font-size:.68rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
     .smic-val{font-family:var(--mono);font-size:1rem;font-weight:500;color:var(--text);margin-bottom:1px}
     .smic-delta{font-size:.7rem;color:var(--green);font-weight:600}
 
-    .section-tag{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
-    .section-tag::before{content:'';width:14px;height:2px;background:var(--accent);border-radius:2px}
-    .section-h2{font-size:1.3rem;font-weight:800;letter-spacing:-.03em;margin-bottom:6px}
+    .section-tag{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+    .section-tag::before{content:'';width:14px;height:2px;background:var(--orange);border-radius:2px}
+    .section-h2{font-family:var(--display);font-size:1.6rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;font-style:italic}
 
-    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .how-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px}
-    .how-illo{margin-bottom:10px}
-    .how-title{font-size:.9rem;font-weight:700;margin-bottom:4px}
-    .how-desc{font-size:.8rem;color:var(--text2);line-height:1.65}
+    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .how-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--shadow-sm);transition:all .2s}
+    .how-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+    .how-illo{margin-bottom:12px}
+    .how-title{font-size:.93rem;font-weight:700;margin-bottom:5px;color:var(--text)}
+    .how-desc{font-size:.81rem;color:var(--text2);line-height:1.68}
 
-    .tbl-wrap{overflow:hidden;border:1px solid var(--border);border-radius:var(--r);margin-top:16px}
+    .infobox{background:var(--orange-l);border:1px solid var(--orange-b);border-left:3px solid var(--orange);border-radius:0 var(--rsm) var(--rsm) 0;padding:12px 16px;margin:14px 0;font-size:.86rem;color:var(--text2)}
+    .infobox strong{color:var(--orange-d)}
+
+    .tbl-wrap{overflow:hidden;border:1px solid var(--border);border-radius:var(--r);margin-top:16px;box-shadow:var(--shadow-sm)}
     .tbl{width:100%;border-collapse:collapse;font-size:.82rem}
-    .tbl th{text-align:left;font-size:.69rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border)}
-    .tbl td{padding:10px 16px;border-bottom:1px solid var(--border);font-family:var(--mono);color:var(--text2)}
+    .tbl th{text-align:left;font-size:.69rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;padding:11px 16px;background:var(--bg2);border-bottom:1px solid var(--border)}
+    .tbl td{padding:11px 16px;border-bottom:1px solid var(--border);font-family:var(--mono);color:var(--text2)}
     .tbl td:first-child{color:var(--text);font-weight:500}
-    .tbl td.green{color:var(--green);font-weight:500}
+    .tbl td.orange{color:var(--orange);font-weight:500}
     .tbl tr:last-child td{border-bottom:none}
-    .tbl tr.smic-row{background:var(--green-l)}
-    .tbl tr.smic-row td:first-child::after{content:' SMIC';font-size:.62rem;color:var(--green);font-family:var(--sans);font-weight:700;margin-left:4px}
+    .tbl tr.smic-row{background:var(--orange-l)}
+    .tbl tr.smic-row td:first-child::after{content:' SMIC';font-size:.62rem;color:var(--orange);font-family:var(--sans);font-weight:700;margin-left:4px}
 
-    .infobox{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--rsm) var(--rsm) 0;padding:11px 16px;margin:14px 0;font-size:.85rem;color:var(--text2)}
-    .infobox strong{color:var(--accent)}
-
-    .faq-item{border-bottom:1px solid var(--border);padding:15px 0}
+    .faq-item{border-bottom:1px solid var(--border);padding:16px 0}
     .faq-item:last-child{border-bottom:none}
-    .faq-q{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:5px;display:flex;align-items:flex-start;gap:9px}
-    .faq-q::before{content:'Q';font-family:var(--mono);font-size:.66rem;color:var(--accent);background:var(--accent-l);border:1px solid var(--accent-b);border-radius:4px;padding:1px 5px;flex-shrink:0;margin-top:2px}
-    .faq-a{font-size:.86rem;color:var(--text2);line-height:1.75;padding-left:26px}
+    .faq-q{font-size:.93rem;font-weight:700;color:var(--text);margin-bottom:6px;display:flex;align-items:flex-start;gap:10px}
+    .faq-q::before{content:'Q';font-family:var(--mono);font-size:.66rem;color:var(--orange);background:var(--orange-l);border:1px solid var(--orange-b);border-radius:4px;padding:1px 5px;flex-shrink:0;margin-top:2px}
+    .faq-a{font-size:.87rem;color:var(--text2);line-height:1.75;padding-left:27px}
     .faq-a strong{color:var(--text);font-weight:600}
 
-    footer{border-top:1px solid var(--border);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;font-size:.73rem;color:var(--text3)}
+    footer{border-top:1px solid var(--border);padding:22px 32px;display:flex;align-items:center;justify-content:space-between;font-size:.73rem;color:var(--text3);background:var(--bg2)}
     footer a{color:var(--text3);text-decoration:none}
     footer a:hover{color:var(--text)}
 
     @media(max-width:700px){
       .fold{grid-template-columns:1fr;height:auto}
-      .fold-left{padding:20px;gap:12px;border-right:none;border-bottom:1px solid var(--border)}
-      .ad-left{min-height:70px;flex:none}
+      .fold-left{padding:24px 20px;min-height:auto}
+      .ad-left{max-height:70px}
       .fold-right{padding:20px}
       .smic-grid,.how-grid{grid-template-columns:1fr}
-      .below{padding:32px 20px 60px}
+      .status-grid{grid-template-columns:repeat(2,1fr)}
+      .below{padding:36px 20px 60px}
       footer{flex-direction:column;gap:6px;text-align:center}
     }
   </style>
@@ -221,36 +260,26 @@
 
 <div class="fold">
 
-  <!-- GAUCHE : titre + badges + pub -->
+  <!-- GAUCHE orange -->
   <div class="fold-left">
-    <div>
-      <h1>Salaire <span class="accent">brut ↔ net</span><br/>en un clic</h1>
-    </div>
-    <p class="hero-sub">Calcul instantané basé sur les cotisations sociales françaises 2026.</p>
-    <div class="hero-badges">
-      <div class="hbadge">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#16a34a" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Taux officiels 2026
-      </div>
-      <div class="hbadge">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2563eb" stroke-width="1.5"/><path d="M8 5v3l2 1.5" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Résultat instantané
-      </div>
-      <div class="hbadge">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#ea580c" stroke-width="1.5"/><path d="M5 8h6M8 5v6" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/></svg>
-        100 % gratuit
+    <div class="left-top">
+      <h1>Votre salaire<br/><strong>brut ↔ net</strong><br/>en un clic</h1>
+      <p class="hero-sub">Calcul instantané basé sur les cotisations sociales françaises 2026.</p>
+      <div class="hero-badges">
+        <div class="hbadge"><span class="hbadge-dot"></span>Taux officiels 2026</div>
+        <div class="hbadge"><span class="hbadge-dot"></span>6 statuts professionnels</div>
+        <div class="hbadge"><span class="hbadge-dot"></span>Positionnement INSEE</div>
+        <div class="hbadge"><span class="hbadge-dot"></span>100 % gratuit</div>
       </div>
     </div>
-
-    <!-- Pub dans l'espace vide -->
     <div class="ad-left">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="var(--border)"/><path d="M7 14h14M14 7v14" stroke="var(--text3)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="rgba(255,255,255,.15)"/><path d="M5 11h12M11 5v12" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
       <span>Espace publicitaire</span>
       <span>AdSense 160×600</span>
     </div>
   </div>
 
-  <!-- DROITE : calculateur -->
+  <!-- DROITE calculateur -->
   <div class="fold-right">
     <div class="calc-title">Calculateur brut / net 2026</div>
 
@@ -259,9 +288,8 @@
       <button class="toggle-btn"        id="btn-net"  onclick="setMode('net')">Net → Brut</button>
     </div>
 
-    <!-- Statut -->
     <div class="status-wrap">
-      <label class="field-lbl" style="margin-bottom:7px">Votre statut</label>
+      <div class="status-lbl">Votre statut</div>
       <div class="status-grid">
         <button class="status-btn active" data-s="non-cadre"       onclick="setStatus('non-cadre')"><span class="sb-icon">👔</span><span class="sb-label">Salarié<br/>non-cadre</span><span class="sb-rate">21,9 %</span></button>
         <button class="status-btn"        data-s="cadre"           onclick="setStatus('cadre')"><span class="sb-icon">💼</span><span class="sb-label">Cadre</span><span class="sb-rate">25 %</span></button>
@@ -278,68 +306,55 @@
       <button class="period-btn"        data-p="heure" onclick="setPeriod('heure')">Horaire</button>
     </div>
 
-    <div class="input-group">
+    <div>
       <label class="field-lbl" id="lbl-input">Salaire brut</label>
-
       <div class="input-wrap">
-        <input type="number" id="salary-input" placeholder="2 500"
-               oninput="onManualInput()" autocomplete="off" autofocus/>
+        <input type="number" id="salary-input" placeholder="2 500" oninput="onManualInput()" autocomplete="off" autofocus/>
         <span class="currency">€</span>
       </div>
-
-      <!-- Curseur -->
-      <div class="slider-wrap">
-        <button class="slider-btn" onclick="nudge(-100)" title="−100 €">−</button>
+      <div class="slider-wrap" style="margin-top:8px">
+        <button class="slider-btn" onclick="nudge(-100)">−</button>
         <div style="flex:1">
-          <input type="range" id="salary-slider"
-                 min="500" max="15000" step="50" value="2500"
-                 oninput="onSliderInput()"/>
-          <div class="slider-labels">
-            <span>500 €</span>
-            <span>15 000 €</span>
-          </div>
+          <input type="range" id="salary-slider" min="500" max="15000" step="50" value="2500" oninput="onSliderInput()"/>
+          <div class="slider-labels"><span>500 €</span><span>15 000 €</span></div>
         </div>
-        <button class="slider-btn" onclick="nudge(+100)" title="+100 €">+</button>
+        <button class="slider-btn" onclick="nudge(+100)">+</button>
       </div>
     </div>
 
+    <!-- Résultat -->
     <div class="result-card" id="result-card">
-      <div class="result-lbl" id="lbl-result">Salaire net estimé</div>
-      <div class="result-main" id="r-main">—</div>
+      <div class="result-top">
+        <div class="result-lbl" id="lbl-result">Salaire net estimé</div>
+      </div>
+      <div class="result-main" id="r-main">—<span class="result-unit" id="r-unit"></span></div>
       <div class="rg">
         <div class="rg-item"><div class="rg-lbl">Annuel net</div><div class="rg-val" id="r-annual">—</div></div>
-        <div class="rg-item"><div class="rg-lbl">Cotisations</div><div class="rg-val" id="r-charges">—</div></div>
-        <div class="rg-item"><div class="rg-lbl">Taux cotisation</div><div class="rg-val green" id="r-rate">21,9 %</div></div>
-        <div class="rg-item"><div class="rg-lbl">Horaire net</div><div class="rg-val" id="r-hourly">—</div></div>
+        <div class="rg-item"><div class="rg-lbl">Cotisations</div><div class="rg-val orange" id="r-charges">—</div></div>
+        <div class="rg-item"><div class="rg-lbl">Taux</div><div class="rg-val orange" id="r-rate">21,9 %</div></div>
+        <div class="rg-item"><div class="rg-lbl">Horaire net</div><div class="rg-val green" id="r-hourly">—</div></div>
       </div>
     </div>
 
-    <!-- Positionnement par rapport au salaire médian -->
-    <div class="position-box" id="position-box" style="display:none">
+    <!-- Position INSEE -->
+    <div class="position-box" id="position-box">
       <div class="pos-header">
-        <span class="pos-title">Votre position</span>
+        <span class="pos-title">Positionnement INSEE 2024</span>
         <span class="pos-label" id="pos-label"></span>
       </div>
-      <div class="pos-track-wrap">
-        <div class="pos-track">
-          <div class="pos-fill" id="pos-fill"></div>
-          <div class="pos-thumb" id="pos-thumb"></div>
-          <!-- marqueurs -->
-          <div class="pos-mark" style="left:calc((1492-500)/(10000-500)*100%)"><span>D1</span></div>
-          <div class="pos-mark pos-mark-med" style="left:calc((2190-500)/(10000-500)*100%)"><span>Médiane</span></div>
-          <div class="pos-mark" style="left:calc((4334-500)/(10000-500)*100%)"><span>D9</span></div>
-        </div>
+      <div class="pos-track">
+        <div class="pos-fill"  id="pos-fill"></div>
+        <div class="pos-thumb" id="pos-thumb"></div>
+        <div class="pos-mark" style="left:calc((1492 - 500)/(10000-500)*100%)"><span>D1</span></div>
+        <div class="pos-mark pos-mark-med" style="left:calc((2190-500)/(10000-500)*100%)"><span>Médiane</span></div>
+        <div class="pos-mark" style="left:calc((4334-500)/(10000-500)*100%)"><span>D9</span></div>
       </div>
-      <div class="pos-legend">
-        <span>1 492 €</span>
-        <span style="text-align:center">2 190 € médiane</span>
-        <span style="text-align:right">4 334 € +</span>
-      </div>
+      <div class="pos-legend"><span>1 492 €</span><span>2 190 €</span><span>4 334 €</span></div>
       <div class="pos-text" id="pos-text"></div>
     </div>
 
     <div class="calc-note">
-      <span id="note-taux">Taux cotisations 2026 : 21,9 % — Salarié non-cadre</span>
+      <span id="note-taux">Taux 2026 : 21,9 % — Salarié non-cadre</span>
       <a href="#methode">Méthodologie ↓</a>
     </div>
   </div>
@@ -351,54 +366,52 @@
   <div class="ad-slot">[ Espace publicitaire — AdSense 728×90 ]</div>
 
   <!-- SMIC -->
-  <div style="margin-bottom:48px">
+  <div style="margin-bottom:52px">
     <div class="section-tag">Référence 2026</div>
-    <div class="section-h2">SMIC 2026 : les chiffres officiels</div>
-    <p style="font-size:.86rem;color:var(--text2);margin-bottom:16px">Revalorisation +1,18 % au 1er janvier 2026 — source : <a href="https://www.info.gouv.fr" style="color:var(--accent)" target="_blank" rel="noopener">info.gouv.fr</a></p>
+    <div class="section-h2">SMIC 2026</div>
+    <p style="font-size:.87rem;color:var(--text2);margin-bottom:16px">Revalorisation +1,18 % au 1er janvier 2026 — source : <a href="https://www.info.gouv.fr" style="color:var(--orange)" target="_blank" rel="noopener">info.gouv.fr</a></p>
     <div class="smic-grid">
       <div class="smic-card">
-        <svg class="smic-icon" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="10" fill="#f0fdf4"/><rect x="9" y="11" width="20" height="18" rx="3" fill="none" stroke="#16a34a" stroke-width="1.6"/><path d="M9 17h20" stroke="#16a34a" stroke-width="1.6"/><path d="M14 9v4M24 9v4" stroke="#16a34a" stroke-width="1.6" stroke-linecap="round"/><rect x="13" y="21" width="4" height="4" rx="1" fill="#16a34a"/><rect x="21" y="21" width="4" height="4" rx="1" fill="#bbf7d0"/></svg>
+        <svg class="smic-icon" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="10" fill="#edf7f0"/><rect x="9" y="11" width="20" height="18" rx="3" fill="none" stroke="#2d7a3e" stroke-width="1.6"/><path d="M9 17h20" stroke="#2d7a3e" stroke-width="1.6"/><path d="M14 9v4M24 9v4" stroke="#2d7a3e" stroke-width="1.6" stroke-linecap="round"/><rect x="13" y="21" width="4" height="4" rx="1" fill="#2d7a3e"/></svg>
         <div><div class="smic-lbl">Brut mensuel</div><div class="smic-val">1 823,03 €</div><div class="smic-delta">↑ +21,23 € vs 2025</div></div>
       </div>
       <div class="smic-card">
-        <svg class="smic-icon" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="10" fill="#eff6ff"/><rect x="8" y="13" width="22" height="15" rx="3" fill="none" stroke="#2563eb" stroke-width="1.6"/><path d="M12 13v-2a2 2 0 012-2h10a2 2 0 012 2v2" stroke="#2563eb" stroke-width="1.6"/><circle cx="24" cy="20.5" r="2.5" fill="#2563eb"/></svg>
+        <svg class="smic-icon" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="10" fill="#fff3ec"/><rect x="8" y="13" width="22" height="15" rx="3" fill="none" stroke="#e8450a" stroke-width="1.6"/><path d="M12 13v-2a2 2 0 012-2h10a2 2 0 012 2v2" stroke="#e8450a" stroke-width="1.6"/><circle cx="24" cy="20.5" r="2.5" fill="#e8450a"/></svg>
         <div><div class="smic-lbl">Net mensuel</div><div class="smic-val">1 443,11 €</div><div class="smic-delta">↑ +16 € vs 2025</div></div>
       </div>
       <div class="smic-card">
-        <svg class="smic-icon" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="10" fill="#fff7ed"/><circle cx="19" cy="20" r="10" fill="none" stroke="#ea580c" stroke-width="1.6"/><path d="M19 14v6l3.5 2" stroke="#ea580c" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="smic-icon" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="10" fill="#fff3ec"/><circle cx="19" cy="20" r="10" fill="none" stroke="#e8450a" stroke-width="1.6"/><path d="M19 14v6l3.5 2" stroke="#e8450a" stroke-width="1.6" stroke-linecap="round"/></svg>
         <div><div class="smic-lbl">Horaire brut</div><div class="smic-val">12,02 €/h</div><div class="smic-delta">↑ vs 11,88 € en 2025</div></div>
       </div>
     </div>
   </div>
 
-  <!-- HOW -->
-  <div style="margin-bottom:48px" id="methode">
+  <!-- COMMENT ÇA MARCHE -->
+  <div style="margin-bottom:52px" id="methode">
     <div class="section-tag">Comprendre</div>
     <div class="section-h2">Brut, net, cotisations</div>
     <div class="how-grid">
       <div class="how-card">
-        <div class="how-illo"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#eff6ff"/><rect x="10" y="11" width="20" height="20" rx="3" fill="none" stroke="#2563eb" stroke-width="1.6"/><path d="M14 19h12M14 24h9" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="how-illo"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#eef4fc"/><rect x="10" y="11" width="20" height="20" rx="3" fill="none" stroke="#1a56a0" stroke-width="1.6"/><path d="M14 19h12M14 24h9" stroke="#1a56a0" stroke-width="1.6" stroke-linecap="round"/></svg></div>
         <div class="how-title">Le salaire brut</div>
         <div class="how-desc">Le montant de votre contrat. Base de calcul de toutes les cotisations sociales et patronales.</div>
       </div>
       <div class="how-card">
-        <div class="how-illo"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#f0fdf4"/><circle cx="20" cy="20" r="10" fill="none" stroke="#16a34a" stroke-width="1.6"/><path d="M15 20l3.5 3.5 6.5-7" stroke="#16a34a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="how-illo"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#edf7f0"/><circle cx="20" cy="20" r="10" fill="none" stroke="#2d7a3e" stroke-width="1.6"/><path d="M15 20l3.5 3.5 6.5-7" stroke="#2d7a3e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="how-title">Le salaire net</div>
-        <div class="how-desc">Ce que vous recevez sur votre compte. Brut − cotisations (~21,9 %). L'impôt sur le revenu s'ajoute en plus.</div>
+        <div class="how-desc">Ce que vous recevez sur votre compte. Brut − cotisations. L'impôt sur le revenu est prélevé en plus.</div>
       </div>
       <div class="how-card">
-        <div class="how-illo"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#fff7ed"/><circle cx="20" cy="20" r="10" fill="none" stroke="#e8e8e4" stroke-width="6"/><circle cx="20" cy="20" r="10" fill="none" stroke="#ea580c" stroke-width="6" stroke-dasharray="13.8 49" stroke-dashoffset="12.5"/><text x="20" y="23" text-anchor="middle" font-family="'DM Mono',monospace" font-size="6.5" fill="#ea580c" font-weight="500">22%</text></svg></div>
+        <div class="how-illo"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#fff3ec"/><circle cx="20" cy="20" r="10" fill="none" stroke="#ecddd0" stroke-width="6"/><circle cx="20" cy="20" r="10" fill="none" stroke="#e8450a" stroke-width="6" stroke-dasharray="13.8 49" stroke-dashoffset="12.5"/><text x="20" y="23" text-anchor="middle" font-family="'DM Mono',monospace" font-size="6.5" fill="#e8450a" font-weight="500">22%</text></svg></div>
         <div class="how-title">Les cotisations</div>
         <div class="how-desc">~21,9 % du brut (non-cadre). Financent la retraite, la sécu, le chômage, la CSG-CRDS.</div>
       </div>
     </div>
-    <div class="infobox">
-      <strong>Formule 2026 :</strong> Net ≈ Brut × 0,781 (non-cadre) &nbsp;|&nbsp; Net ≈ Brut × 0,75 (cadre)
-    </div>
+    <div class="infobox"><strong>Formule 2026 :</strong> Net ≈ Brut × 0,781 (non-cadre) &nbsp;|&nbsp; Net ≈ Brut × 0,75 (cadre)</div>
   </div>
 
   <!-- TABLE -->
-  <div style="margin-bottom:48px">
+  <div style="margin-bottom:52px">
     <div class="section-tag">Référence rapide</div>
     <div class="section-h2">Tableau de conversion 2026</div>
     <div class="tbl-wrap">
@@ -430,63 +443,15 @@
       <div class="faq-a">Ce calculateur utilise un taux moyen. Votre fiche de paie peut varier selon votre mutuelle, statut cadre/non-cadre, primes ou exonérations spécifiques.</div>
     </div>
   </div>
-
 </div>
 
 <footer>
   <span>© 2026 SalaireCalc.fr — Calcul indicatif, non contractuel</span>
-  <span>Sources : <a href="https://www.info.gouv.fr" target="_blank" rel="noopener">info.gouv.fr</a> · <a href="https://www.legisocial.fr" target="_blank" rel="noopener">LégiSocial</a></span>
+  <span>Sources : <a href="https://www.info.gouv.fr" target="_blank" rel="noopener">info.gouv.fr</a> · <a href="https://www.legisocial.fr" target="_blank" rel="noopener">LégiSocial</a> · <a href="https://www.insee.fr" target="_blank" rel="noopener">INSEE</a></span>
 </footer>
 
 <script>
-  // Données déciles INSEE 2024 (secteur privé, net mensuel EQTP)
-  const DECILES = [
-    { pct: 10, val: 1492,  label: 'Top 90 %' },
-    { pct: 20, val: 1680,  label: 'Top 80 %' },
-    { pct: 30, val: 1840,  label: 'Top 70 %' },
-    { pct: 40, val: 1990,  label: 'Top 60 %' },
-    { pct: 50, val: 2190,  label: 'Top 50 % — au-dessus de la médiane' },
-    { pct: 60, val: 2430,  label: 'Top 40 %' },
-    { pct: 70, val: 2780,  label: 'Top 30 %' },
-    { pct: 80, val: 3200,  label: 'Top 20 %' },
-    { pct: 90, val: 4334,  label: 'Top 10 %' },
-    { pct: 99, val: 10261, label: 'Top 1 %'  },
-  ];
-  const MEDIANE = 2190, D1 = 1492, D9 = 4334;
-  const TRACK_MIN = 500, TRACK_MAX = 10000;
-
-  function updatePosition(netMonthly) {
-    const box = document.getElementById('position-box');
-    if (!netMonthly || netMonthly <= 0) { box.style.display = 'none'; return; }
-    box.style.display = 'block';
-
-    // Pourcentage sur le track
-    const pct = Math.min(100, Math.max(0, ((netMonthly - TRACK_MIN) / (TRACK_MAX - TRACK_MIN)) * 100));
-    document.getElementById('pos-fill').style.width  = pct + '%';
-    document.getElementById('pos-thumb').style.left  = pct + '%';
-
-    // Label de position
-    let rang = 'dans les 10 % les moins bien payés';
-    let detail = '';
-    for (const d of DECILES) {
-      if (netMonthly <= d.val) { rang = d.label; break; }
-      rang = 'Top 1 %';
-    }
-
-    // Texte comparatif
-    const diff = netMonthly - MEDIANE;
-    const diffPct = Math.abs(Math.round((diff / MEDIANE) * 100));
-    if (Math.abs(diff) < 50) {
-      detail = `Votre salaire net est quasiment égal à la <strong>médiane nationale (2 190 €)</strong> — vous êtes exactement au milieu de la distribution.`;
-    } else if (diff > 0) {
-      detail = `Votre salaire net est <strong>${diffPct} % au-dessus</strong> de la médiane nationale (2 190 €). Vous gagnez plus que la moitié des salariés français.`;
-    } else {
-      detail = `Votre salaire net est <strong>${diffPct} % en-dessous</strong> de la médiane nationale (2 190 €). La moitié des salariés français gagne davantage.`;
-    }
-
-    document.getElementById('pos-label').textContent = rang;
-    document.getElementById('pos-text').innerHTML = detail + ' <span style="color:var(--text3);font-size:.7rem">Source : INSEE 2024</span>';
-  }
+  const H_MOI = 151.67;
   const STATUTS = {
     'non-cadre':        { taux: 0.219, label: '21,9 % — Salarié non-cadre' },
     'cadre':            { taux: 0.25,  label: '25 % — Cadre' },
@@ -495,6 +460,20 @@
     'portage':          { taux: 0.25,  label: '25 % — Portage salarial' },
     'autoentrepreneur': { taux: 0.23,  label: '23 % — Auto-entrepreneur (services)' },
   };
+  const DECILES = [
+    { val: 1492,  label: 'dans les 10 % les moins bien payés' },
+    { val: 1680,  label: 'dans les 20 % les moins bien payés' },
+    { val: 1840,  label: 'dans les 30 % les moins bien payés' },
+    { val: 1990,  label: 'dans les 40 % les moins bien payés' },
+    { val: 2190,  label: 'dans la moitié inférieure (sous la médiane)' },
+    { val: 2430,  label: 'dans le top 40 %' },
+    { val: 2780,  label: 'dans le top 30 %' },
+    { val: 3200,  label: 'dans le top 20 %' },
+    { val: 4334,  label: 'dans le top 10 %' },
+    { val: 10261, label: 'dans le top 1 %' },
+  ];
+  const MEDIANE = 2190;
+
   let mode = 'brut', period = 'mois', status = 'non-cadre';
   let TAUX = STATUTS[status].taux;
 
@@ -508,77 +487,114 @@
   const inp    = () => document.getElementById('salary-input');
   const sld    = () => document.getElementById('salary-slider');
 
+  // Compteur animé
+  let animFrame = null, displayedVal = 0;
+  function animateTo(target) {
+    if (animFrame) cancelAnimationFrame(animFrame);
+    const start = displayedVal, diff = target - start, dur = 300;
+    const t0 = performance.now();
+    function step(now) {
+      const p = Math.min((now-t0)/dur, 1);
+      const ease = 1 - Math.pow(1-p, 3);
+      const cur = start + diff*ease;
+      displayedVal = cur;
+      const formatted = new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(cur));
+      document.getElementById('r-main').innerHTML =
+        formatted + '<span class="result-unit" id="r-unit"> € ' + sfx() + '</span>';
+      if (p < 1) animFrame = requestAnimationFrame(step);
+    }
+    animFrame = requestAnimationFrame(step);
+  }
+
+  function updatePosition(nM) {
+    const box = document.getElementById('position-box');
+    if (!nM || nM <= 0) { box.style.display='none'; return; }
+    box.style.display = 'block';
+    const MIN=500, MAX=10000;
+    const pct = Math.min(100,Math.max(0,((nM-MIN)/(MAX-MIN))*100));
+    document.getElementById('pos-fill').style.width = pct+'%';
+    document.getElementById('pos-thumb').style.left = pct+'%';
+    let rang = 'dans les 10 % les moins bien payés';
+    for (const d of DECILES) { if (nM <= d.val) { rang = d.label; break; } rang='dans le top 1 %'; }
+    const diff = nM - MEDIANE;
+    const diffPct = Math.abs(Math.round((diff/MEDIANE)*100));
+    let txt = Math.abs(diff) < 50
+      ? `Votre salaire net est quasiment égal à la <strong>médiane nationale (2 190 €)</strong>.`
+      : diff > 0
+        ? `Votre salaire net est <strong>${diffPct} % au-dessus</strong> de la médiane nationale (2 190 €/mois).`
+        : `Votre salaire net est <strong>${diffPct} % en-dessous</strong> de la médiane nationale (2 190 €/mois).`;
+    document.getElementById('pos-label').textContent = rang;
+    document.getElementById('pos-text').innerHTML = txt + ' <span style="color:var(--text3);font-size:.68rem">— Source : INSEE 2024</span>';
+  }
+
   function calculate(val) {
     const raw = val ?? parseFloat(inp().value);
     const rc = document.getElementById('result-card');
     if (!raw||raw<=0) {
       document.getElementById('r-main').innerHTML = '—';
-      ['r-annual','r-charges','r-hourly'].forEach(id => document.getElementById(id).textContent='—');
+      ['r-annual','r-charges','r-hourly'].forEach(id=>document.getElementById(id).textContent='—');
       document.getElementById('r-rate').textContent = (TAUX*100).toFixed(1)+' %';
       rc.classList.remove('lit');
-      document.getElementById('position-box').style.display = 'none';
-      return;
+      document.getElementById('position-box').style.display='none';
+      displayedVal=0; return;
     }
     rc.classList.add('lit');
     const m  = toMon(raw);
     const bM = mode==='brut' ? m : toBrut(m);
     const nM = mode==='brut' ? toNet(m) : m;
-    document.getElementById('r-main').innerHTML = `${fE(frMon(nM)).replace(' €','')}<span class="unit">€ ${sfx()}</span>`;
+    animateTo(frMon(nM));
     document.getElementById('r-annual').textContent  = fE(nM*12)+'/an';
     document.getElementById('r-charges').textContent = fE(bM-nM)+'/mois';
     document.getElementById('r-rate').textContent    = (TAUX*100).toFixed(1)+' %';
     document.getElementById('r-hourly').textContent  = fEh(nM/H_MOI)+'/h';
-    // Positionnement — toujours sur la base du net mensuel
     updatePosition(nM);
   }
 
   function setStatus(s) {
-    status = s; TAUX = STATUTS[s].taux;
-    document.querySelectorAll('.status-btn').forEach(b => b.classList.toggle('active', b.dataset.s===s));
-    document.getElementById('note-taux').textContent = 'Taux 2026 : '+STATUTS[s].label;
+    status=s; TAUX=STATUTS[s].taux;
+    document.querySelectorAll('.status-btn').forEach(b=>b.classList.toggle('active',b.dataset.s===s));
+    document.getElementById('note-taux').textContent='Taux 2026 : '+STATUTS[s].label;
     calculate();
   }
-
   function onSliderInput() {
-    const v = parseInt(sld().value);
-    inp().value = v; updateSliderTrack(v); calculate(v);
+    const v=parseInt(sld().value); inp().value=v; updateSliderTrack(v); calculate(v);
   }
   function onManualInput() {
-    const v = parseFloat(inp().value);
-    if (v>=500&&v<=15000) { sld().value=v; updateSliderTrack(v); }
+    const v=parseFloat(inp().value);
+    if(v>=500&&v<=15000){sld().value=v;updateSliderTrack(v);}
     calculate(v);
   }
   function nudge(delta) {
-    const next = Math.min(15000,Math.max(500,(parseFloat(inp().value)||2500)+delta));
+    const next=Math.min(15000,Math.max(500,(parseFloat(inp().value)||2500)+delta));
     inp().value=next; sld().value=next; updateSliderTrack(next); calculate(next);
   }
   function updateSliderTrack(v) {
-    const pct = ((v-500)/(15000-500))*100;
-    sld().style.background = `linear-gradient(to right,var(--accent) ${pct}%,var(--border) ${pct}%)`;
+    const pct=((v-500)/(15000-500))*100;
+    sld().style.background=`linear-gradient(to right,var(--orange) ${pct}%,var(--border) ${pct}%)`;
   }
   function setMode(m) {
     mode=m;
-    ['brut','net'].forEach(x => document.getElementById('btn-'+x).classList.toggle('active',x===m));
+    ['brut','net'].forEach(x=>document.getElementById('btn-'+x).classList.toggle('active',x===m));
     document.getElementById('lbl-input').textContent  = m==='brut'?'Salaire brut':'Salaire net';
     document.getElementById('lbl-result').textContent = m==='brut'?'Salaire net estimé':'Salaire brut estimé';
-    inp().placeholder = m==='brut'?'2 500':'1 950';
+    inp().placeholder=m==='brut'?'2 500':'1 950';
     calculate();
   }
   function setPeriod(p) {
     period=p;
-    document.querySelectorAll('.period-btn').forEach(b => b.classList.toggle('active',b.dataset.p===p));
+    document.querySelectorAll('.period-btn').forEach(b=>b.classList.toggle('active',b.dataset.p===p));
     calculate();
   }
 
   // Init
-  inp().value = 2500; updateSliderTrack(2500); calculate(2500);
+  inp().value=2500; updateSliderTrack(2500); calculate(2500);
 
   (function(){
     const rows=[{b:1823.03,smic:true},{b:2000},{b:2500},{b:3000},{b:3500},{b:4000},{b:5000},{b:6000}];
-    const t = STATUTS['non-cadre'].taux;
-    document.getElementById('ex-tbody').innerHTML = rows.map(r => {
-      const n = r.b*(1-t);
-      return `<tr${r.smic?' class="smic-row"':''}><td>${fE(r.b)}</td><td class="green">${fE(n)}</td><td>${fE(n*12)}</td><td>${fEh(n/H_MOI)}/h</td></tr>`;
+    const t=STATUTS['non-cadre'].taux;
+    document.getElementById('ex-tbody').innerHTML=rows.map(r=>{
+      const n=r.b*(1-t);
+      return`<tr${r.smic?' class="smic-row"':''}><td>${fE(r.b)}</td><td class="orange">${fE(n)}</td><td>${fE(n*12)}</td><td>${fEh(n/H_MOI)}/h</td></tr>`;
     }).join('');
   })();
 </script>
