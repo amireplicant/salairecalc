@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculateur Salaire Net Brut 2025 – Conversion instantanée</title>
+  <meta name="description" content="Convertissez votre salaire brut en net (et inversement) en quelques secondes. Calcul basé sur les taux de cotisations sociales français 2025." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://votre-domaine.fr/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Calculateur Salaire Net / Brut 2025" />
+  <meta property="og:description" content="Convertissez votre salaire brut en net instantanément. Taux 2025 à jour." />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculateur Salaire Net Brut 2025",
+    "description": "Outil de conversion salaire brut net pour salariés français",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+
+  <!-- AdSense placeholder — remplacer l'ID quand approuvé -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:      #0f0f0f;
+      --bg2:     #161616;
+      --bg3:     #1e1e1e;
+      --border:  #272727;
+      --text:    #f0ede8;
+      --muted:   #888;
+      --faint:   #444;
+      --accent:  #c8f135;
+      --accent2: #a0c42a;
+      --radius:  14px;
+      --mono:    'DM Mono', monospace;
+      --sans:    'Sora', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--muted); }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: .93rem;
+      margin-bottom: 40px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    /* ── TOGGLE ── */
+    .toggle-wrap {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .toggle-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: .88rem;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .toggle-btn.active {
+      background: var(--accent);
+      color: #0f0f0f;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── FORM ── */
+    .field { margin-bottom: 20px; }
+    label {
+      display: block;
+      font-size: .82rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+    .input-wrap input {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 1.3rem;
+      font-weight: 500;
+      padding: 14px 52px 14px 18px;
+      outline: none;
+      transition: border-color .2s;
+      -moz-appearance: textfield;
+    }
+    .input-wrap input::-webkit-outer-spin-button,
+    .input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .input-wrap input:focus { border-color: var(--accent); }
+    .currency {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    /* select période */
+    .period-wrap {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .period-btn {
+      padding: 7px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: .82rem;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .period-btn.active {
+      border-color: var(--faint);
+      color: var(--text);
+      background: var(--bg3);
+    }
+
+    /* ── RÉSULTAT ── */
+    .result-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-top: 8px;
+    }
+    .result-label {
+      font-size: .8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+    }
+    .result-value {
+      font-family: var(--mono);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -.02em;
+    }
+    .result-value span {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+    .result-sub {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .result-sub-item {
+      background: var(--bg2);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .result-sub-item .rs-label {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .result-sub-item .rs-val {
+      font-family: var(--mono);
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    /* ── TAUX ── */
+    .rates-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .rates-row a {
+      color: var(--faint);
+      text-decoration: none;
+      font-size: .78rem;
+    }
+    .rates-row a:hover { color: var(--muted); }
+
+    /* ── ADSENSE SLOT ── */
+    .ad-slot {
+      background: var(--bg2);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--faint);
+      font-size: .78rem;
+      font-family: var(--mono);
+      margin-bottom: 24px;
+    }
+
+    /* ── CONTENT SEO ── */
+    .content { margin-top: 48px; }
+    .content h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      margin-top: 32px;
+      color: var(--text);
+    }
+    .content p {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: .85rem;
+    }
+    .content th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 400;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .content td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: .88rem;
+      color: var(--text);
+    }
+    .content tr:last-child td { border-bottom: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--faint);
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 20px 16px; }
+      .result-sub { grid-template-columns: 1fr; }
+      .result-value { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="/">salaire<span>calc</span>.fr</a>
+</header>
+
+<main>
+  <h1>Convertisseur salaire<br /><em>brut ↔ net</em> 2025</h1>
+  <p class="subtitle">Calcul instantané basé sur les taux de cotisations sociales en vigueur en France.</p>
+
+  <!-- ADSENSE — leaderboard haut de page -->
+  <div class="ad-slot">[ AdSense 728×90 — à activer après approbation ]</div>
+
+  <div class="card">
+
+    <!-- Mode brut→net ou net→brut -->
+    <div class="toggle-wrap">
+      <button class="toggle-btn active" id="btn-brut" onclick="setMode('brut')">Brut → Net</button>
+      <button class="toggle-btn" id="btn-net" onclick="setMode('net')">Net → Brut</button>
+    </div>
+
+    <!-- Période -->
+    <div class="period-wrap">
+      <button class="period-btn active" data-period="mois" onclick="setPeriod('mois')">Mensuel</button>
+      <button class="period-btn" data-period="annee" onclick="setPeriod('annee')">Annuel</button>
+      <button class="period-btn" data-period="heure" onclick="setPeriod('heure')">Horaire</button>
+    </div>
+
+    <!-- Input -->
+    <div class="field">
+      <label id="input-label">Salaire brut</label>
+      <div class="input-wrap">
+        <input type="number" id="salary-input" placeholder="2 500" oninput="calculate()" />
+        <span class="currency">€</span>
+      </div>
+    </div>
+
+    <!-- Résultat -->
+    <div class="result-box">
+      <div class="result-label" id="result-label">Salaire net estimé</div>
+      <div class="result-value" id="result-main">— <span>€ / mois</span></div>
+      <div class="result-sub">
+        <div class="result-sub-item">
+          <div class="rs-label">Annuel</div>
+          <div class="rs-val" id="result-annual">—</div>
+        </div>
+        <div class="result-sub-item">
+          <div class="rs-label">Cotisations</div>
+          <div class="rs-val" id="result-charges">—</div>
+        </div>
+        <div class="result-sub-item">
+          <div class="rs-label">Taux de cotisation</div>
+          <div class="rs-val" id="result-rate">~22 %</div>
+        </div>
+        <div class="result-sub-item">
+          <div class="rs-label">Horaire net</div>
+          <div class="rs-val" id="result-hourly">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rates-row">
+      <span>Taux salarié moyen 2025 : ~22 %</span>
+      <a href="#methodologie">Comment c'est calculé ?</a>
+    </div>
+
+  </div>
+
+  <!-- ADSENSE — carré milieu de page -->
+  <div class="ad-slot">[ AdSense 300×250 — à activer après approbation ]</div>
+
+  <!-- ── CONTENU SEO ── -->
+  <div class="content">
+
+    <h2>Exemples de conversion brut / net</h2>
+    <p>Voici quelques exemples courants basés sur le taux de cotisations salariales moyen de 22 % en 2025 :</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Brut mensuel</th>
+          <th>Net mensuel</th>
+          <th>Net annuel</th>
+        </tr>
+      </thead>
+      <tbody id="examples-table">
+        <!-- rempli par JS -->
+      </tbody>
+    </table>
+
+    <h2 id="methodologie">Comment fonctionne le calcul ?</h2>
+    <p>
+      En France, le salaire net correspond au salaire brut diminué des <strong>cotisations sociales salariales</strong>.
+      Ces cotisations financent l'assurance maladie, la retraite, le chômage et la prévoyance.
+    </p>
+    <p>
+      Pour un salarié du secteur privé non cadre, le taux global de cotisations salariales tourne autour de <strong>22 %</strong> du brut.
+      Pour un cadre, ce taux est légèrement supérieur (environ 25 %) en raison des cotisations de retraite complémentaire Agirc-Arrco plus élevées.
+    </p>
+    <p>
+      <strong>Formule simplifiée :</strong> Salaire net ≈ Salaire brut × 0,78 (non-cadre) ou × 0,75 (cadre).
+    </p>
+    <p>
+      Note : ce calcul ne tient pas compte de l'impôt sur le revenu, qui est propre à chaque foyer fiscal et prélevé à la source depuis 2019.
+    </p>
+
+    <h2>Quelle est la différence entre brut et net ?</h2>
+    <p>
+      Le <strong>salaire brut</strong> est le montant total que votre employeur vous verse avant déduction des cotisations sociales.
+      C'est le chiffre qui figure dans votre contrat de travail.
+    </p>
+    <p>
+      Le <strong>salaire net</strong> est ce que vous percevez réellement sur votre compte bancaire chaque mois,
+      après déduction des cotisations salariales. C'est le montant affiché sur votre bulletin de paie sous la ligne "Net à payer".
+    </p>
+
+    <h2>Le SMIC en 2025</h2>
+    <p>
+      Depuis le 1er novembre 2024, le SMIC brut mensuel est fixé à <strong>1 801,80 €</strong> pour 35 heures hebdomadaires,
+      soit un net d'environ <strong>1 426 €</strong> par mois.
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2025 SalaireCalc.fr — Calcul indicatif, non contractuel. Taux 2025.
+</footer>
+
+<script>
+  // ── État ──
+  let mode = 'brut';   // 'brut' | 'net'
+  let period = 'mois'; // 'mois' | 'annee' | 'heure'
+
+  // Taux de cotisations salariales moyens France 2025
+  const TAUX_NON_CADRE = 0.2194; // ~21,94 %
+  // On utilise un taux unique simplifié pour ce MVP
+  const TAUX = TAUX_NON_CADRE;
+  const HEURES_MOIS = 151.67; // 35h/semaine → mensuel
+
+  // ── Helpers ──
+  function fmt(n) {
+    if (isNaN(n) || n === null) return '—';
+    return new Intl.NumberFormat('fr-FR', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(Math.round(n)) + ' €';
+  }
+
+  function brutToNet(brut) { return brut * (1 - TAUX); }
+  function netToBrut(net)  { return net  / (1 - TAUX); }
+
+  // ── Périodes → conversion mensuelle ──
+  function toMonthly(val) {
+    if (period === 'annee') return val / 12;
+    if (period === 'heure') return val * HEURES_MOIS;
+    return val;
+  }
+  function fromMonthly(val) {
+    if (period === 'annee') return val * 12;
+    if (period === 'heure') return val / HEURES_MOIS;
+    return val;
+  }
+
+  function periodLabel() {
+    return { mois: '/ mois', annee: '/ an', heure: '/ h' }[period];
+  }
+
+  // ── Calcul principal ──
+  function calculate() {
+    const raw = parseFloat(document.getElementById('salary-input').value);
+
+    if (!raw || raw <= 0) {
+      document.getElementById('result-main').innerHTML = '— <span>€ ' + periodLabel() + '</span>';
+      document.getElementById('result-annual').textContent = '—';
+      document.getElementById('result-charges').textContent = '—';
+      document.getElementById('result-hourly').textContent = '—';
+      return;
+    }
+
+    const monthly = toMonthly(raw);
+    let netMonthly, brutMonthly;
+
+    if (mode === 'brut') {
+      brutMonthly = monthly;
+      netMonthly  = brutToNet(monthly);
+    } else {
+      netMonthly  = monthly;
+      brutMonthly = netToBrut(monthly);
+    }
+
+    const charges   = brutMonthly - netMonthly;
+    const netPeriod = fromMonthly(netMonthly);
+    const hourly    = netMonthly / HEURES_MOIS;
+
+    document.getElementById('result-main').innerHTML =
+      fmt(netPeriod).replace(' €', '') + ' <span>€ ' + periodLabel() + '</span>';
+    document.getElementById('result-annual').textContent = fmt(netMonthly * 12) + '/an';
+    document.getElementById('result-charges').textContent = fmt(charges) + '/mois';
+    document.getElementById('result-hourly').textContent = fmt(hourly).replace(' €','') + ' €/h';
+  }
+
+  // ── UI helpers ──
+  function setMode(m) {
+    mode = m;
+    document.getElementById('btn-brut').classList.toggle('active', m === 'brut');
+    document.getElementById('btn-net').classList.toggle('active', m === 'net');
+    document.getElementById('input-label').textContent = m === 'brut' ? 'Salaire brut' : 'Salaire net';
+    document.getElementById('result-label').textContent = m === 'brut' ? 'Salaire net estimé' : 'Salaire brut estimé';
+    document.getElementById('salary-input').placeholder = m === 'brut' ? '2 500' : '1 950';
+    calculate();
+  }
+
+  function setPeriod(p) {
+    period = p;
+    document.querySelectorAll('.period-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.period === p);
+    });
+    calculate();
+  }
+
+  // ── Table d'exemples ──
+  function buildExamples() {
+    const bruts = [1802, 2000, 2500, 3000, 3500, 4000, 5000, 6000];
+    const tbody = document.getElementById('examples-table');
+    tbody.innerHTML = bruts.map(b => {
+      const n = brutToNet(b);
+      return `<tr>
+        <td>${fmt(b)}</td>
+        <td>${fmt(n)}</td>
+        <td>${fmt(n * 12)}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // ── Init ──
+  buildExamples();
+</script>
+
+</body>
+</html>
