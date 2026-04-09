@@ -122,6 +122,35 @@
     .rg-val{font-family:var(--mono);font-size:.85rem;color:var(--text2)}
     .rg-val.green{color:var(--green);font-weight:500}
 
+    /* STATUS SELECTOR */
+    .status-wrap{margin-bottom:12px}
+    .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+    .status-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 6px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;transition:all .15s;text-align:center;font-family:var(--sans)}
+    .status-btn:hover:not(.active){border-color:var(--border2);background:var(--bg2)}
+    .status-btn.active{border-color:var(--accent);background:var(--accent-l)}
+    .sb-icon{font-size:1.1rem;line-height:1}
+    .sb-label{font-size:.68rem;font-weight:600;color:var(--text2);line-height:1.3}
+    .status-btn.active .sb-label{color:var(--accent)}
+    .sb-rate{font-family:var(--mono);font-size:.65rem;color:var(--text3);font-weight:500}
+    .status-btn.active .sb-rate{color:var(--accent)}
+
+    /* POSITION BOX */
+    .position-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 16px;margin-top:10px}
+    .pos-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .pos-title{font-size:.7rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
+    .pos-label{font-size:.78rem;font-weight:700;color:var(--accent);font-family:var(--mono)}
+    .pos-track-wrap{padding:0 2px;margin-bottom:4px}
+    .pos-track{position:relative;height:6px;background:var(--border);border-radius:99px;margin:16px 0 6px}
+    .pos-fill{position:absolute;left:0;top:0;height:100%;border-radius:99px;background:linear-gradient(to right,var(--green),var(--accent));transition:width .35s ease}
+    .pos-thumb{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.15);transform:translate(-50%,-50%);transition:left .35s ease}
+    .pos-mark{position:absolute;top:-14px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px}
+    .pos-mark::after{content:'';width:1px;height:6px;background:var(--border2);margin-top:14px}
+    .pos-mark span{font-size:.58rem;color:var(--text3);white-space:nowrap;font-family:var(--mono)}
+    .pos-mark-med span{color:var(--accent);font-weight:600}
+    .pos-mark-med::after{background:var(--accent);opacity:.4}
+    .pos-legend{display:flex;justify-content:space-between;font-size:.62rem;color:var(--text3);font-family:var(--mono);margin-bottom:8px}
+    .pos-text{font-size:.75rem;color:var(--text2);line-height:1.5;padding-top:6px;border-top:1px solid var(--border)}
+
     .calc-note{font-size:.71rem;color:var(--text3);display:flex;justify-content:space-between}
     .calc-note a{color:var(--accent);text-decoration:none;font-weight:500}
     .calc-note a:hover{text-decoration:underline}
@@ -230,6 +259,19 @@
       <button class="toggle-btn"        id="btn-net"  onclick="setMode('net')">Net → Brut</button>
     </div>
 
+    <!-- Statut -->
+    <div class="status-wrap">
+      <label class="field-lbl" style="margin-bottom:7px">Votre statut</label>
+      <div class="status-grid">
+        <button class="status-btn active" data-s="non-cadre"       onclick="setStatus('non-cadre')"><span class="sb-icon">👔</span><span class="sb-label">Salarié<br/>non-cadre</span><span class="sb-rate">21,9 %</span></button>
+        <button class="status-btn"        data-s="cadre"           onclick="setStatus('cadre')"><span class="sb-icon">💼</span><span class="sb-label">Cadre</span><span class="sb-rate">25 %</span></button>
+        <button class="status-btn"        data-s="fonctionnaire"   onclick="setStatus('fonctionnaire')"><span class="sb-icon">🏛️</span><span class="sb-label">Fonctionnaire</span><span class="sb-rate">17 %</span></button>
+        <button class="status-btn"        data-s="liberal"         onclick="setStatus('liberal')"><span class="sb-icon">🩺</span><span class="sb-label">Prof. libérale</span><span class="sb-rate">45 %</span></button>
+        <button class="status-btn"        data-s="portage"         onclick="setStatus('portage')"><span class="sb-icon">🔗</span><span class="sb-label">Portage salarial</span><span class="sb-rate">25 %</span></button>
+        <button class="status-btn"        data-s="autoentrepreneur" onclick="setStatus('autoentrepreneur')"><span class="sb-icon">🚀</span><span class="sb-label">Auto-entrepreneur</span><span class="sb-rate">23 %</span></button>
+      </div>
+    </div>
+
     <div class="period-wrap">
       <button class="period-btn active" data-p="mois"  onclick="setPeriod('mois')">Mensuel</button>
       <button class="period-btn"        data-p="annee" onclick="setPeriod('annee')">Annuel</button>
@@ -267,13 +309,37 @@
       <div class="rg">
         <div class="rg-item"><div class="rg-lbl">Annuel net</div><div class="rg-val" id="r-annual">—</div></div>
         <div class="rg-item"><div class="rg-lbl">Cotisations</div><div class="rg-val" id="r-charges">—</div></div>
-        <div class="rg-item"><div class="rg-lbl">Taux cotisation</div><div class="rg-val green">~21,9 %</div></div>
+        <div class="rg-item"><div class="rg-lbl">Taux cotisation</div><div class="rg-val green" id="r-rate">21,9 %</div></div>
         <div class="rg-item"><div class="rg-lbl">Horaire net</div><div class="rg-val" id="r-hourly">—</div></div>
       </div>
     </div>
 
+    <!-- Positionnement par rapport au salaire médian -->
+    <div class="position-box" id="position-box" style="display:none">
+      <div class="pos-header">
+        <span class="pos-title">Votre position</span>
+        <span class="pos-label" id="pos-label"></span>
+      </div>
+      <div class="pos-track-wrap">
+        <div class="pos-track">
+          <div class="pos-fill" id="pos-fill"></div>
+          <div class="pos-thumb" id="pos-thumb"></div>
+          <!-- marqueurs -->
+          <div class="pos-mark" style="left:calc((1492-500)/(10000-500)*100%)"><span>D1</span></div>
+          <div class="pos-mark pos-mark-med" style="left:calc((2190-500)/(10000-500)*100%)"><span>Médiane</span></div>
+          <div class="pos-mark" style="left:calc((4334-500)/(10000-500)*100%)"><span>D9</span></div>
+        </div>
+      </div>
+      <div class="pos-legend">
+        <span>1 492 €</span>
+        <span style="text-align:center">2 190 € médiane</span>
+        <span style="text-align:right">4 334 € +</span>
+      </div>
+      <div class="pos-text" id="pos-text"></div>
+    </div>
+
     <div class="calc-note">
-      <span>Taux salarié 2026 : ~21,9 % (non-cadre)</span>
+      <span id="note-taux">Taux cotisations 2026 : 21,9 % — Salarié non-cadre</span>
       <a href="#methode">Méthodologie ↓</a>
     </div>
   </div>
@@ -373,93 +439,146 @@
 </footer>
 
 <script>
-  const TAUX=0.2194, H_MOI=151.67;
-  let mode='brut', period='mois';
+  // Données déciles INSEE 2024 (secteur privé, net mensuel EQTP)
+  const DECILES = [
+    { pct: 10, val: 1492,  label: 'Top 90 %' },
+    { pct: 20, val: 1680,  label: 'Top 80 %' },
+    { pct: 30, val: 1840,  label: 'Top 70 %' },
+    { pct: 40, val: 1990,  label: 'Top 60 %' },
+    { pct: 50, val: 2190,  label: 'Top 50 % — au-dessus de la médiane' },
+    { pct: 60, val: 2430,  label: 'Top 40 %' },
+    { pct: 70, val: 2780,  label: 'Top 30 %' },
+    { pct: 80, val: 3200,  label: 'Top 20 %' },
+    { pct: 90, val: 4334,  label: 'Top 10 %' },
+    { pct: 99, val: 10261, label: 'Top 1 %'  },
+  ];
+  const MEDIANE = 2190, D1 = 1492, D9 = 4334;
+  const TRACK_MIN = 500, TRACK_MAX = 10000;
 
-  const fE  = n=>!n||isNaN(n)?'—':new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
-  const fEh = n=>!n||isNaN(n)?'—':new Intl.NumberFormat('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' €';
-  const toNet=b=>b*(1-TAUX), toBrut=n=>n/(1-TAUX);
-  const toMon=v=>period==='annee'?v/12:period==='heure'?v*H_MOI:v;
-  const frMon=v=>period==='annee'?v*12:period==='heure'?v/H_MOI:v;
-  const sfx=()=>({mois:'/ mois',annee:'/ an',heure:'/ h'})[period];
+  function updatePosition(netMonthly) {
+    const box = document.getElementById('position-box');
+    if (!netMonthly || netMonthly <= 0) { box.style.display = 'none'; return; }
+    box.style.display = 'block';
 
-  const inp = ()=>document.getElementById('salary-input');
-  const sld = ()=>document.getElementById('salary-slider');
+    // Pourcentage sur le track
+    const pct = Math.min(100, Math.max(0, ((netMonthly - TRACK_MIN) / (TRACK_MAX - TRACK_MIN)) * 100));
+    document.getElementById('pos-fill').style.width  = pct + '%';
+    document.getElementById('pos-thumb').style.left  = pct + '%';
 
-  function calculate(val){
+    // Label de position
+    let rang = 'dans les 10 % les moins bien payés';
+    let detail = '';
+    for (const d of DECILES) {
+      if (netMonthly <= d.val) { rang = d.label; break; }
+      rang = 'Top 1 %';
+    }
+
+    // Texte comparatif
+    const diff = netMonthly - MEDIANE;
+    const diffPct = Math.abs(Math.round((diff / MEDIANE) * 100));
+    if (Math.abs(diff) < 50) {
+      detail = `Votre salaire net est quasiment égal à la <strong>médiane nationale (2 190 €)</strong> — vous êtes exactement au milieu de la distribution.`;
+    } else if (diff > 0) {
+      detail = `Votre salaire net est <strong>${diffPct} % au-dessus</strong> de la médiane nationale (2 190 €). Vous gagnez plus que la moitié des salariés français.`;
+    } else {
+      detail = `Votre salaire net est <strong>${diffPct} % en-dessous</strong> de la médiane nationale (2 190 €). La moitié des salariés français gagne davantage.`;
+    }
+
+    document.getElementById('pos-label').textContent = rang;
+    document.getElementById('pos-text').innerHTML = detail + ' <span style="color:var(--text3);font-size:.7rem">Source : INSEE 2024</span>';
+  }
+  const STATUTS = {
+    'non-cadre':        { taux: 0.219, label: '21,9 % — Salarié non-cadre' },
+    'cadre':            { taux: 0.25,  label: '25 % — Cadre' },
+    'fonctionnaire':    { taux: 0.17,  label: '17 % — Fonctionnaire' },
+    'liberal':          { taux: 0.45,  label: '45 % — Profession libérale (CIPAV/SSI)' },
+    'portage':          { taux: 0.25,  label: '25 % — Portage salarial' },
+    'autoentrepreneur': { taux: 0.23,  label: '23 % — Auto-entrepreneur (services)' },
+  };
+  let mode = 'brut', period = 'mois', status = 'non-cadre';
+  let TAUX = STATUTS[status].taux;
+
+  const fE  = n => !n||isNaN(n) ? '—' : new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+  const fEh = n => !n||isNaN(n) ? '—' : new Intl.NumberFormat('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' €';
+  const toNet  = b => b*(1-TAUX);
+  const toBrut = n => n/(1-TAUX);
+  const toMon  = v => period==='annee'?v/12:period==='heure'?v*H_MOI:v;
+  const frMon  = v => period==='annee'?v*12:period==='heure'?v/H_MOI:v;
+  const sfx    = () => ({mois:'/ mois',annee:'/ an',heure:'/ h'})[period];
+  const inp    = () => document.getElementById('salary-input');
+  const sld    = () => document.getElementById('salary-slider');
+
+  function calculate(val) {
     const raw = val ?? parseFloat(inp().value);
-    const rc=document.getElementById('result-card');
-    if(!raw||raw<=0){
-      document.getElementById('r-main').innerHTML='—';
-      ['r-annual','r-charges','r-hourly'].forEach(id=>document.getElementById(id).textContent='—');
-      rc.classList.remove('lit');return;
+    const rc = document.getElementById('result-card');
+    if (!raw||raw<=0) {
+      document.getElementById('r-main').innerHTML = '—';
+      ['r-annual','r-charges','r-hourly'].forEach(id => document.getElementById(id).textContent='—');
+      document.getElementById('r-rate').textContent = (TAUX*100).toFixed(1)+' %';
+      rc.classList.remove('lit');
+      document.getElementById('position-box').style.display = 'none';
+      return;
     }
     rc.classList.add('lit');
-    const m=toMon(raw), bM=mode==='brut'?m:toBrut(m), nM=mode==='brut'?toNet(m):m;
-    document.getElementById('r-main').innerHTML=`${fE(frMon(nM)).replace(' €','')}<span class="unit">€ ${sfx()}</span>`;
-    document.getElementById('r-annual').textContent=fE(nM*12)+'/an';
-    document.getElementById('r-charges').textContent=fE(bM-nM)+'/mois';
-    document.getElementById('r-hourly').textContent=fEh(nM/H_MOI)+'/h';
+    const m  = toMon(raw);
+    const bM = mode==='brut' ? m : toBrut(m);
+    const nM = mode==='brut' ? toNet(m) : m;
+    document.getElementById('r-main').innerHTML = `${fE(frMon(nM)).replace(' €','')}<span class="unit">€ ${sfx()}</span>`;
+    document.getElementById('r-annual').textContent  = fE(nM*12)+'/an';
+    document.getElementById('r-charges').textContent = fE(bM-nM)+'/mois';
+    document.getElementById('r-rate').textContent    = (TAUX*100).toFixed(1)+' %';
+    document.getElementById('r-hourly').textContent  = fEh(nM/H_MOI)+'/h';
+    // Positionnement — toujours sur la base du net mensuel
+    updatePosition(nM);
   }
 
-  /* slider → input */
-  function onSliderInput(){
-    const v=parseInt(sld().value);
-    inp().value=v;
-    updateSliderTrack(v);
+  function setStatus(s) {
+    status = s; TAUX = STATUTS[s].taux;
+    document.querySelectorAll('.status-btn').forEach(b => b.classList.toggle('active', b.dataset.s===s));
+    document.getElementById('note-taux').textContent = 'Taux 2026 : '+STATUTS[s].label;
+    calculate();
+  }
+
+  function onSliderInput() {
+    const v = parseInt(sld().value);
+    inp().value = v; updateSliderTrack(v); calculate(v);
+  }
+  function onManualInput() {
+    const v = parseFloat(inp().value);
+    if (v>=500&&v<=15000) { sld().value=v; updateSliderTrack(v); }
     calculate(v);
   }
-
-  /* input → slider */
-  function onManualInput(){
-    const v=parseFloat(inp().value);
-    if(v>=500&&v<=15000){sld().value=v;updateSliderTrack(v);}
-    calculate(v);
+  function nudge(delta) {
+    const next = Math.min(15000,Math.max(500,(parseFloat(inp().value)||2500)+delta));
+    inp().value=next; sld().value=next; updateSliderTrack(next); calculate(next);
   }
-
-  /* boutons −/+ 100 */
-  function nudge(delta){
-    const cur=parseFloat(inp().value)||2500;
-    const next=Math.min(15000,Math.max(500,cur+delta));
-    inp().value=next;
-    sld().value=next;
-    updateSliderTrack(next);
-    calculate(next);
+  function updateSliderTrack(v) {
+    const pct = ((v-500)/(15000-500))*100;
+    sld().style.background = `linear-gradient(to right,var(--accent) ${pct}%,var(--border) ${pct}%)`;
   }
-
-  /* couleur du track rempli */
-  function updateSliderTrack(v){
-    const pct=((v-500)/(15000-500))*100;
-    sld().style.background=`linear-gradient(to right,var(--accent) ${pct}%,var(--border) ${pct}%)`;
-  }
-
-  function setMode(m){
+  function setMode(m) {
     mode=m;
-    ['brut','net'].forEach(x=>document.getElementById('btn-'+x).classList.toggle('active',x===m));
-    document.getElementById('lbl-input').textContent=m==='brut'?'Salaire brut':'Salaire net';
-    document.getElementById('lbl-result').textContent=m==='brut'?'Salaire net estimé':'Salaire brut estimé';
-    inp().placeholder=m==='brut'?'2 500':'1 950';
+    ['brut','net'].forEach(x => document.getElementById('btn-'+x).classList.toggle('active',x===m));
+    document.getElementById('lbl-input').textContent  = m==='brut'?'Salaire brut':'Salaire net';
+    document.getElementById('lbl-result').textContent = m==='brut'?'Salaire net estimé':'Salaire brut estimé';
+    inp().placeholder = m==='brut'?'2 500':'1 950';
     calculate();
   }
-
-  function setPeriod(p){
+  function setPeriod(p) {
     period=p;
-    document.querySelectorAll('.period-btn').forEach(b=>b.classList.toggle('active',b.dataset.p===p));
+    document.querySelectorAll('.period-btn').forEach(b => b.classList.toggle('active',b.dataset.p===p));
     calculate();
   }
 
-  /* init slider track + calcul au chargement */
-  inp().value = 2500;
-  updateSliderTrack(2500);
-  calculate(2500);
+  // Init
+  inp().value = 2500; updateSliderTrack(2500); calculate(2500);
 
   (function(){
     const rows=[{b:1823.03,smic:true},{b:2000},{b:2500},{b:3000},{b:3500},{b:4000},{b:5000},{b:6000}];
-    document.getElementById('ex-tbody').innerHTML=rows.map(r=>{
-      const n=toNet(r.b);
-      return`<tr${r.smic?' class="smic-row"':''}>
-        <td>${fE(r.b)}</td><td class="green">${fE(n)}</td>
-        <td>${fE(n*12)}</td><td>${fEh(n/H_MOI)}/h</td></tr>`;
+    const t = STATUTS['non-cadre'].taux;
+    document.getElementById('ex-tbody').innerHTML = rows.map(r => {
+      const n = r.b*(1-t);
+      return `<tr${r.smic?' class="smic-row"':''}><td>${fE(r.b)}</td><td class="green">${fE(n)}</td><td>${fE(n*12)}</td><td>${fEh(n/H_MOI)}/h</td></tr>`;
     }).join('');
   })();
 </script>
